@@ -214,14 +214,14 @@ if ($result->num_rows > 0) {
    if ($row['status']==1){
        echo "<form action='worker/deactivate.php' method='GET'>
        <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
-       <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-info btn-md'>
+       <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
        <span class='glyphicon glyphicon-trash'></span>
      </a></form>" ;
    }
    if ($row['status']==0){
     echo "<form action='worker/activate.php' method='GET'>
     <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
-    <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-info btn-md'>
+    <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
 }
@@ -326,7 +326,7 @@ echo " </tbody>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">Edit Tab Duration</h4>
+          <h4 class="modal-title">Delete Tab</h4>
       </div>
       <div class="modal-body">
       <form action=worker/delurl.php method="POST">
