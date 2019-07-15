@@ -27,7 +27,7 @@
       
       $count = mysqli_num_rows($result); 
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
+      $conn->close();
       if($count == 1) {
 		
 		 $_SESSION['login']=true;
@@ -37,8 +37,10 @@
       }else {
          $error = "Your Username or Password is invalid. This time, it’s the human’s fault.";
       }
-   }}
-   $conn->close();
+   }
+   
+  }
+   
 ?>
 
 
