@@ -8,7 +8,7 @@ header('Location: login.php');
 include("../config/config.php");
 if (isset($_REQUEST['url'])){
 $url = mysqli_real_escape_string($conn,$_POST['url']);
-$duration = mysqli_real_escape_string($conn,$_POST['duration']);
+$duration = 1000*mysqli_real_escape_string($conn,$_POST['duration']);
 $login_id=$_SESSION['login_id'];
 
 $sql = "INSERT INTO linklist (link,duration,clientid,status)VALUES ('$url','$duration','$login_id',1)";
