@@ -86,9 +86,9 @@
   }
   .form-signin {
     max-width: 280px;
-    padding: 15px;
+    padding: 5px;
     margin: 0 auto;
-      margin-top:50px;
+    margin-top:25%;
   }
   .form-signin .form-signin-heading, .form-signin {
     margin-bottom: 10px;
@@ -142,6 +142,7 @@
 	<form class="form-signin" method="post" action="">
 		<h1 class="form-signin-heading text-muted">autoTab</h1>
 		<h4 class="form-signin-heading text-muted">Control and Command Center</h4>
+    <br>
 		<input type="text" class="form-control" name="client" placeholder="Client ID" required="" autofocus="">
 		<input type="password" class="form-control" name="password" placeholder="Password" required="">
         <div style = "font-size:20px; color:#ff7c8e; margin-top:10px"><?php echo $error; ?></div>
