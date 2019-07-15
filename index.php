@@ -214,14 +214,14 @@ if ($result->num_rows > 0) {
    if ($row['status']==1){
        echo "<form action='worker/deactivate.php' method='GET'>
        <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
-       <span class='glyphicon glyphicon-pencil'></span> </a><a href='worker/delurl.php?delid=".$row['linkid']."' class='m-2 btn btn-danger btn-md'>
+       <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-info btn-md'>
        <span class='glyphicon glyphicon-trash'></span>
      </a></form>" ;
    }
    if ($row['status']==0){
     echo "<form action='worker/activate.php' method='GET'>
     <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
-    <span class='glyphicon glyphicon-pencil'></span> </a><a href='worker/delurl.php?delid=".$row['linkid']."' class='m-2 btn btn-danger btn-md'>
+    <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
 }
@@ -321,37 +321,48 @@ echo " </tbody>
 
 
       <!-- Modal to comfirm delete -->
-      <div class="modal fade" id="myModal3" role="dialog">
-    <div class="modal-dialog">
- <!-- Modal content-->
- <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Tab</h4>
-        </div>
-        <div class="modal-body">       
-        <form action=worker/addurl.php method="POST">
-  URL:  <input type="text" name="url">
-  <br>
-  Duration: <input type="text" name="duration">
-        </div>
-        <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Update</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </form>
-        </div>
+      <div class="modal" id="my_modal_del">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Edit Tab Duration</h4>
       </div>
+      <div class="modal-body">
+      <form action=worker/delurl.php method="POST">
+      <label>Are you sure to Delete? </label>
+        <input class="form-control form-control-lg" disabled type="text" name="deleteurl" placeholder="Enter Duration in Seconds" value=""/>
+        <input class="form-control form-control-lg" type="hidden" name="deleteurlid" placeholder="Enter Duration in Seconds" value=""/>
+       
+        <!-- <input type="text" name="editduration" value=""/> -->
       </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-default" >Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
 
 
-      </div>
+
+
+
+
       <script>
 $('#my_modal').on('show.bs.modal', function(e) {
     var editduration = $(e.relatedTarget).data('book-id');
     $(e.currentTarget).find('input[name="editduration"]').val(editduration);
     var editlink = $(e.relatedTarget).data('book-id1');
     $(e.currentTarget).find('input[name="editlink"]').val(editlink);
+});
+
+$('#my_modal_del').on('show.bs.modal', function(e) {
+    var deleteurl = $(e.relatedTarget).data('deleteurl');
+    $(e.currentTarget).find('input[name="deleteurl"]').val(deleteurl);
+    var deleteurlid = $(e.relatedTarget).data('deleteurlid');
+    $(e.currentTarget).find('input[name="deleteurlid"]').val(deleteurlid);
 });
 
 </script>
