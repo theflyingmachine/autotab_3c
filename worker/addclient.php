@@ -9,6 +9,7 @@ include("../config/config.php");
 if (isset($_REQUEST['client'])){
 $client = mysqli_real_escape_string($conn,$_POST['client']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
+$password=md5($password);
 if ($_SESSION['login_id']=="admin"){
 
 $sql = "INSERT INTO client (client,password)VALUES ('$client','$password')";

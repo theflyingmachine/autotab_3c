@@ -17,7 +17,7 @@
         header("location: admin.php");
       }else{
 
-
+      $mypassword=md5($mypassword);
 
       $sql = "SELECT clientid FROM client WHERE client = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($conn,$sql);
