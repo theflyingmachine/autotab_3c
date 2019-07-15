@@ -168,6 +168,7 @@ body {
   <a class="active" href="#home">AutoTab 3C  -  <?php echo $clientname ?></a>
   <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
   <a href="http://corpansimstr00/autotab_3c/autoTab.zip">Download Client</a>
+  <a href="#" data-toggle="modal" data-target="#mypassModal">Change Password</a>
   <!-- <a href="#contact">Contact</a> -->
   <div class="topnav-right">
     <!-- <a href="#search">Search</a> -->
@@ -273,6 +274,74 @@ echo " </tbody>
         <br><br>
         <label>Duration </label>
         <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
+  <!-- URL:  <input type="text" name="url"> -->
+  <br>
+  <!-- Duration: <input type="text" name="duration"> -->
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-default" >Add</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+      </div>
+      </div>
+
+
+
+
+<!-- Edit Duration ################## -->
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+<div class="modal" id="my_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Edit Tab Duration</h4>
+      </div>
+      <div class="modal-body">
+      <form action=worker/edittab.php method="POST">
+      <label>Tab </label>
+        <input class="form-control form-control-lg" type="text" disabled name="elink" placeholder="Enter Duration in Seconds" value=""/>
+       <br>
+       <label>Duration </label>
+        <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value=""/>
+        <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value=""/>
+       
+        <!-- <input type="text" name="editduration" value=""/> -->
+      </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-default" >Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Change Password Modal ########################## -->
+<!-- Add new TAB ################-->
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+<div class="modal fade" id="mypassModal" role="dialog">
+    <div class="modal-dialog">
+ <!-- Modal content-->
+ <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change Password</h4>
+        </div>
+        <div class="modal-body">     
+        <form action=worker/changepass.php method="POST" enctype="multipart/form-data">
+        <label>Enter New Password </label>
+        <input class="form-control form-control-lg" type="password" name="pass1" placeholder="Enter New Password">
+        <br>
+        <label>Repeat New Password </label>
+        <input class="form-control form-control-lg" type="password" name="pass2" placeholder="Confirm New Password">
   <!-- URL:  <input type="text" name="url"> -->
   <br>
   <!-- Duration: <input type="text" name="duration"> -->
