@@ -10,7 +10,8 @@ $clientname="Admin";
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+<title>AutoTab 3C</title>
+  <link rel="icon" href="img/favicon.ico" type="image/png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -166,6 +167,7 @@ if ($result->num_rows > 0) {
       <tr>
         <th>Client ID</th>
         <th>Client</th>
+        <th>Action</th>
       
       </tr>
     </thead> <tbody>";
@@ -174,6 +176,8 @@ if ($result->num_rows > 0) {
   echo "  <tr>";
    echo "<td>".$row['clientid']."</td>";
    echo "<td>".$row['client']."</td>";
+   echo "<td><a href='#my_modal_del' data-toggle='modal' data-deleteid='$row[clientid]' data-deletename='$row[client]' class='m-2 btn btn-danger btn-md'>
+   <span class='glyphicon glyphicon-trash'></span></td>";
    echo "</tr>";
     }}
     else
@@ -214,10 +218,6 @@ echo " </tbody>
         <br>
         <label>Password </label>
         <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter Password">
-
-
-
-
         </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-default" >Add</button>
@@ -227,6 +227,50 @@ echo " </tbody>
       </div>
       </div>
       </div>
+
+
+
+
+
+        <!-- Modal to comfirm delete -->
+        <div class="modal" id="my_modal_del">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Delete Tab</h4>
+      </div>
+      <div class="modal-body">
+      <form action=worker/delclient.php method="POST">
+      <label>Are you sure to Delete? </label>
+        <input class="form-control form-control-lg"  type="hidden" name="deleteid" placeholder="Enter Duration in Seconds" value=""/>
+        <input class="form-control form-control-lg" disabled type="text" name="deletename" placeholder="Enter Duration in Seconds" value=""/>
+       
+        <!-- <input type="text" name="editduration" value=""/> -->
+      </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-default" >Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      <script>
+
+$('#my_modal_del').on('show.bs.modal', function(e) {
+    var deleteid = $(e.relatedTarget).data('deleteid');
+    $(e.currentTarget).find('input[name="deleteid"]').val(deleteid);
+    var deletename = $(e.relatedTarget).data('deletename');
+    $(e.currentTarget).find('input[name="deletename"]').val(deletename);
+});
+
+</script>
+
 
 </body>
 </html>
