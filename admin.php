@@ -20,15 +20,106 @@ $clientname="Admin";
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <style>
+  .white
+  {
+    color:white !important;
+  }
+  li:hover { 
+  background-color: green  !important;
+}
+/* file upload css */
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+ }
+.files{ position:relative}
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.color input{ background-color:#f1f1f1;}
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: "or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+ </style>
+
+ 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> -->
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="#">AutoTab 3C</a>
+  <!-- <a class="navbar-brand" href="#">AutoTab 3C</a> -->
   
   <!-- Links -->
-  <ul class="navbar-nav">
+  <!-- <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="#">Home - <?php echo $clientname ?> </a>
     </li>
@@ -39,7 +130,18 @@ $clientname="Admin";
       <a class="nav-link" href="logout.php">Logout</a>
     </li>
   </ul>
-</nav>
+</nav> -->
+<div class="topnav">
+  <a class="active" href="#home">AutoTab 3C  -  <?php echo $clientname ?></a>
+  <a href="#" data-toggle="modal" data-target="#myModal">Add Client</a>
+  <!-- <a href="#contact">Contact</a> -->
+  <div class="topnav-right">
+    <!-- <a href="#search">Search</a> -->
+    <a href="logout.php">Logout</a>
+  </div>
+</div>
+
+
 
 <div class="container-fluid">
   
@@ -106,9 +208,12 @@ echo " </tbody>
         <div class="modal-body">
         
         <form action=worker/addclient.php method="POST">
-  Client Name:  <input type="text" name="client">
-  <br>
-  password: <input type="password" name="password">
+        <label>Client</label>
+        <input class="form-control form-control-lg" type="text" name="client" placeholder="Enter Client Name">
+        <br>
+        <label>Password </label>
+        <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter Password">
+
 
 
 

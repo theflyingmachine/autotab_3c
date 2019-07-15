@@ -135,7 +135,7 @@ body {
 </nav> -->
 
 <div class="topnav">
-  <a class="active" href="#home">Home  -  <?php echo $clientname ?></a>
+  <a class="active" href="#home">AutoTab 3C  -  <?php echo $clientname ?></a>
   <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
   <!-- <a href="#contact">Contact</a> -->
   <div class="topnav-right">
