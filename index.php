@@ -213,14 +213,14 @@ if ($result->num_rows > 0) {
   echo "<td  width='20%'>";
    if ($row['status']==1){
        echo "<form action='worker/deactivate.php' method='GET'>
-       <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#' class='m-2 btn btn-info btn-md' data-toggle='modal' data-target='#myModal2'>
+       <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
        <span class='glyphicon glyphicon-pencil'></span> </a><a href='worker/delurl.php?delid=".$row['linkid']."' class='m-2 btn btn-danger btn-md'>
        <span class='glyphicon glyphicon-trash'></span>
      </a></form>" ;
    }
    if ($row['status']==0){
     echo "<form action='worker/activate.php' method='GET'>
-    <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#addBookDialog' class='m-2 btn btn-info btn-md' data-id='ISBN-001122' data-toggle='modal' data-target='#myModal2'>
+    <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-pencil'></span> </a><a href='worker/delurl.php?delid=".$row['linkid']."' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
@@ -233,7 +233,7 @@ if ($result->num_rows > 0) {
     }}
     else
     {
-        echo "<p>No Links added to your AutoTab</p>";
+        echo "<p>No Links added to your AutoTab. Let's start by adding Tabs</p>";
     }
 
 echo " </tbody>
@@ -292,32 +292,29 @@ echo " </tbody>
 <!-- Edit Duration ################## -->
 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
-<div class="modal fade" id="myModal2" role="dialog">
-    <div class="modal-dialog">
- <!-- Modal content-->
- <div class="modal-content" id="addBookDialog">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Tab</h4>
-        </div>
-        <div class="modal-body">
-        
-        <form action=worker/addurl.php method="POST">
-        <div class="modal-body">
-        <label>Edit Duration </label>
-        <input class="form-control form-control-lg" type="text" name="edittime" value=""/>
-        </div>
-
-
-        </div>
-        <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Update</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </form>
-        </div>
+<div class="modal" id="my_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Edit Tab Duration</h4>
       </div>
+      <div class="modal-body">
+      <form action=worker/edittab.php method="POST">
+      <label>Duration </label>
+        <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value=""/>
+        <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value=""/>
+       
+        <!-- <input type="text" name="editduration" value=""/> -->
       </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-default" >Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -350,13 +347,13 @@ echo " </tbody>
 
       </div>
       <script>
-$(document).on("click", ".open-editDialog", function () {
-     var myNewTime = $(this).data('id');
-     $(".modal-body #edittime").val( myNewTime );
-     // As pointed out in comments, 
-     // it is unnecessary to have to manually call the modal.
-     // $('#addBookDialog').modal('show');
+$('#my_modal').on('show.bs.modal', function(e) {
+    var editduration = $(e.relatedTarget).data('book-id');
+    $(e.currentTarget).find('input[name="editduration"]').val(editduration);
+    var editlink = $(e.relatedTarget).data('book-id1');
+    $(e.currentTarget).find('input[name="editlink"]').val(editlink);
 });
+
 </script>
 <footer id="footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
