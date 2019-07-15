@@ -231,13 +231,13 @@ echo " </tbody>
           <h4 class="modal-title">Add New Tab</h4>
         </div>
         <div class="modal-body">     
-        <form action=worker/addurl.php method="POST">
+        <form action=worker/addurl.php method="POST" enctype="multipart/form-data">
         <label>Tab URL </label>
         <input class="form-control form-control-lg" type="text" name="url" placeholder="Enter URL">
         <h3 align="center">or</h3>
         <div class="form-group files">
                 <label>Upload Your File </label>
-                <input type="file" class="form-control">
+                <input type="file" class="form-control" name="fileToUpload">
               </div>
         <br><br>
         <label>Duration </label>
