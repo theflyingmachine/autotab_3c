@@ -174,7 +174,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 	
   echo "  <tr>";
-   echo "<td valign='center' width='65%'><a target='_blank' href='".$row['link']."'>".$row['link']."</a></td>";
+   echo "<td valign='center' width='65%'><a target='_blank' href='".$row['link']."'>".substr($row['link'], 0, 100)."</a></td>";
    $sec = ((int)$row['duration']/1000);
    echo "<td  valign='center' width='8%'>".$sec." Sec</td>";
    $status=$row['status'];
