@@ -21,6 +21,9 @@ $clientname=$_SESSION['login_name'];
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <style>
   .white
   {
@@ -108,6 +111,33 @@ body {
 .topnav-right {
   float: right;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+/* Other Classes for Page Styling */
+
+/* body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+} */
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
  </style>
 
 
@@ -115,7 +145,7 @@ body {
 </head>
 <body>
 
-
+<div id="content">
 <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> -->
   <!-- Brand/logo -->
   <!-- <a class="navbar-brand white" href="#">AutoTab 3C</a> -->
@@ -318,7 +348,7 @@ echo " </tbody>
       </div>
 
 
-
+      </div>
       <script>
 $(document).on("click", ".open-editDialog", function () {
      var myNewTime = $(this).data('id');
@@ -328,5 +358,10 @@ $(document).on("click", ".open-editDialog", function () {
      // $('#addBookDialog').modal('show');
 });
 </script>
+<footer id="footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
+    </div>
+  </footer>
 </body>
 </html>
