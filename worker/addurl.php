@@ -68,7 +68,7 @@ if ($uploadOk == 0) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         //if (gethostname()=="W1752027")
         
-        echo $url = "http://".gethostname()."/autotab/upload/" .basename( $_FILES["fileToUpload"]["name"]);
+        echo $url = "http://".gethostname()."/autotab_3c/upload/" .basename( $_FILES["fileToUpload"]["name"]);
         $duration = 1000*mysqli_real_escape_string($conn,$_POST['duration']);
         $login_id=$_SESSION['login_id'];
         $sql = "INSERT INTO linklist (link,duration,clientid,status)VALUES ('$url','$duration','$login_id',1)";
