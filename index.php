@@ -213,14 +213,14 @@ if ($result->num_rows > 0) {
   echo "<td  width='20%'>";
    if ($row['status']==1){
        echo "<form action='worker/deactivate.php' method='GET'>
-       <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
+       <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
        <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
        <span class='glyphicon glyphicon-trash'></span>
      </a></form>" ;
    }
    if ($row['status']==0){
     echo "<form action='worker/activate.php' method='GET'>
-    <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' class='m-2 btn btn-info btn-md'>
+    <input type='hidden' name='linkid' value='".$row['linkid']."'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
@@ -301,7 +301,10 @@ echo " </tbody>
       </div>
       <div class="modal-body">
       <form action=worker/edittab.php method="POST">
-      <label>Duration </label>
+      <label>Tab </label>
+        <input class="form-control form-control-lg" type="text" disabled name="elink" placeholder="Enter Duration in Seconds" value=""/>
+       <br>
+       <label>Duration </label>
         <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value=""/>
         <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value=""/>
        
@@ -356,6 +359,8 @@ $('#my_modal').on('show.bs.modal', function(e) {
     $(e.currentTarget).find('input[name="editduration"]').val(editduration);
     var editlink = $(e.relatedTarget).data('book-id1');
     $(e.currentTarget).find('input[name="editlink"]').val(editlink);
+    var elink = $(e.relatedTarget).data('book-id2');
+    $(e.currentTarget).find('input[name="elink"]').val(elink);
 });
 
 $('#my_modal_del').on('show.bs.modal', function(e) {
