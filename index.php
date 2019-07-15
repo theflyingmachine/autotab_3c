@@ -137,6 +137,7 @@ body {
 <div class="topnav">
   <a class="active" href="#home">AutoTab 3C  -  <?php echo $clientname ?></a>
   <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
+  <a href="http://corpansimstr00/autotab_3c/autoTab.zip">Download Client</a>
   <!-- <a href="#contact">Contact</a> -->
   <div class="topnav-right">
     <!-- <a href="#search">Search</a> -->
