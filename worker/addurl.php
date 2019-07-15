@@ -66,7 +66,7 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        if (gethostname()=="W1752027")
+        //if (gethostname()=="W1752027")
         
         echo $url = "http://".gethostname()."/autotab/upload/" .basename( $_FILES["fileToUpload"]["name"]);
         $duration = 1000*mysqli_real_escape_string($conn,$_POST['duration']);
