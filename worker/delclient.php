@@ -17,9 +17,10 @@ $result = $conn->query($sql);
 $sql = "DELETE FROM linklist WHERE clientid='$deleteid'";
 //echo $sql;
 $result = $conn->query($sql);
-
+$_SESSION['message'] = 'Client Deleted Successfully';
 header("location: ../admin.php");
 }}else
-echo "Oops, something went wrong...";
+$_SESSION['errormessage'] = 'Oops, Something went worng..!!';
+header("location: ../index.php");
 
 ?>

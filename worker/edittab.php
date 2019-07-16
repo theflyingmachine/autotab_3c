@@ -14,9 +14,10 @@ $login_id=$_SESSION['login_id'];
 $sql = "UPDATE linklist SET duration = '$editduration' WHERE linkid='$editlink' AND clientid='$login_id'";
 //echo $sql;
 $result = $conn->query($sql);
-
+$_SESSION['message'] = 'Tab Updated Successfully';
 header("location: ../index.php");
 }else
-echo "Oops, something went wrong...";
+$_SESSION['errormessage'] = 'Oops, Something went worng..!!';
+header("location: ../index.php");
 
 ?>

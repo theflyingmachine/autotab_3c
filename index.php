@@ -178,8 +178,20 @@ body {
 </div>
 
 <div class="container-fluid">
-  
-  
+<!-- FLASH MESSAGE ########################################################### -->
+<?php
+if (isset($_SESSION['message'])) {
+  echo '<div class="alert alert-info">
+    <strong></strong>'.$_SESSION["message"].'
+  </div>';
+  unset($_SESSION['message']);
+}
+  if (isset($_SESSION['errormessage'])) {
+    echo '<div class="alert alert-danger">
+      <strong></strong>'.$_SESSION["errormessage"].'
+    </div>';
+    unset($_SESSION['errormessage']);
+}?>
 <div class="container">
 <br>
   <h2>Available Tabs</h2>

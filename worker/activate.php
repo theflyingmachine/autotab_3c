@@ -12,6 +12,7 @@ $login_id=$_SESSION['login_id'];
 
 $sql = "UPDATE linklist SET status = 1 WHERE linkid='$linkid' AND clientid='$login_id'";
 $result = $conn->query($sql);
+$_SESSION['message'] = 'Tab Activated Successfully';
 header("location: ../index.php");
 }else
 echo "Invalid Link ID";
