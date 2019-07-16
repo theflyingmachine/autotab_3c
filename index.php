@@ -181,13 +181,13 @@ body {
 <!-- FLASH MESSAGE ########################################################### -->
 <?php
 if (isset($_SESSION['message'])) {
-  echo '<div class="alert alert-info">
+  echo '<br><div class="alert alert-info">
     <strong></strong>'.$_SESSION["message"].'
   </div>';
   unset($_SESSION['message']);
 }
   if (isset($_SESSION['errormessage'])) {
-    echo '<div class="alert alert-danger">
+    echo '<br><div class="alert alert-danger">
       <strong></strong>'.$_SESSION["errormessage"].'
     </div>';
     unset($_SESSION['errormessage']);
@@ -350,7 +350,7 @@ echo " </tbody>
         <div class="modal-body">     
         <form action=worker/changepass.php method="POST" enctype="multipart/form-data">
         <label>Enter New Password </label>
-        <input class="form-control form-control-lg" type="password" name="pass1" placeholder="Enter New Password">
+        <input autofocus class="form-control form-control-lg" type="password" name="pass1" placeholder="Enter New Password">
         <br>
         <label>Repeat New Password </label>
         <input class="form-control form-control-lg" type="password" name="pass2" placeholder="Confirm New Password">

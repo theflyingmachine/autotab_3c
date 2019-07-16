@@ -145,11 +145,11 @@
     <br>
 		<input type="text" class="form-control" name="client" placeholder="Client ID" required="" autofocus="">
 		<input type="password" class="form-control" name="password" placeholder="Password" required="">
-        <div style = "font-size:20px; color:#ff7c8e; margin-top:10px"><?php echo $error; ?></div>
+        
 		<button class="btn btn-lg btn-primary btn-block" type="submit">
 			Sign In
 		</button>
 	</form>
-
+  <div align="center" style = "font-size:20px; color:#ff7c8e; margin-top:10px"><?php echo $error; ?></div>
 </div>
 </html>
