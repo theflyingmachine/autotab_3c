@@ -169,6 +169,7 @@ body {
   <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
   <a href="http://corpansimstr00/autotab_3c/autoTab.zip">Download Client</a>
   <a href="#" data-toggle="modal" data-target="#mypassModal">Change Password</a>
+  <a href="#" data-toggle="modal" data-target="#myaboutModal">About</a>
   <!-- <a href="#contact">Contact</a> -->
   <div class="topnav-right">
     <!-- <a href="#search">Search</a> -->
@@ -324,7 +325,6 @@ echo " </tbody>
 
 
 <!-- Change Password Modal ########################## -->
-<!-- Add new TAB ################-->
 <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
 <div class="modal fade" id="mypassModal" role="dialog">
@@ -347,7 +347,45 @@ echo " </tbody>
   <!-- Duration: <input type="text" name="duration"> -->
         </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-default" >Add</button>
+        <button type="submit" class="btn btn-default" >Change Password</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+      </div>
+      </div>
+
+
+
+<!-- About Modal ########################## -->
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+<div class="modal fade" id="myaboutModal" role="dialog">
+    <div class="modal-dialog">
+ <!-- Modal content-->
+ <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">About</h4>
+        </div>
+        <div class="modal-body">     
+        <form action=worker/changepass.php method="POST" enctype="multipart/form-data">
+        <div style="text-align: center">
+        <img src="img/autoTabback.png" alt="AutoTab Logo" width="80" height="80">
+        </div>
+        <div style="text-align: center">
+        <br>
+        <H2>AutoTab 3c</H2>
+        Autotab automates the display such that screen rotates the highlighted events. 
+        <br>
+        Version: 2.0.1
+        <br>
+
+        </div>
+        <br>  
+        <!-- Duration: <input type="text" name="duration"> -->
+        </div>
+        <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </form>
         </div>
