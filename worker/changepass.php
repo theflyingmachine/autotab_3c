@@ -17,6 +17,7 @@ if ($pass1 != $pass2){
     header("location: ../index.php");
     exit;
 }
+$pass2=md5($pass2);
 $sql = "UPDATE client SET password = '$pass2' WHERE clientid='$login_id'";
 //echo $sql;
 $result = $conn->query($sql);
