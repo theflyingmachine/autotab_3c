@@ -181,14 +181,20 @@ body {
 <!-- FLASH MESSAGE ########################################################### -->
 <?php
 if (isset($_SESSION['message'])) {
-  echo '<br><div class="alert alert-info">
+  echo '<br><div class="alert alert-info alert-dismissible">
     <strong></strong>'.$_SESSION["message"].'
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
   </div>';
   unset($_SESSION['message']);
 }
   if (isset($_SESSION['errormessage'])) {
-    echo '<br><div class="alert alert-danger">
+    echo '<br><div class="alert alert-danger alert-dismissible">
       <strong></strong>'.$_SESSION["errormessage"].'
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button> 
     </div>';
     unset($_SESSION['errormessage']);
 }?>
