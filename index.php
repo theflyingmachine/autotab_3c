@@ -388,7 +388,7 @@ echo " </tbody>
         <div style="text-align: center">
         <br>
         <H2>AutoTab 3c</H2>
-        Autotab automates the display such that screen rotates the highlighted events. 
+        AutoTab is a platform for creating, managing and deploying digital content in a reliable and user-friendly dashboard that gives users total control over how and where content is played across a network of screens, ensuring relevance to current audiences.
         <br>
         Version: 2.0.1
         <br>
