@@ -95,7 +95,7 @@ if ($uploadOk == 0) {
         // echo "Sorry, there was an error uploading your file.";
     }
 }}
-$_SESSION['errormessage'] = 'Oops, Something went wrong...!!';
+//$_SESSION['errormessage'] = 'Oops, Something went wrong...!!';
 header("location: ../index.php");
 // echo "Oops, Something went wrong...!!"
 // $url = mysqli_real_escape_string($conn,$_POST['url']);
