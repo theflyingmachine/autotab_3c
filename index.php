@@ -163,24 +163,7 @@ $clientname = $_SESSION['login_name'];
 <body>
 
   <div id="content">
-    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> -->
-    <!-- Brand/logo -->
-    <!-- <a class="navbar-brand white" href="#">AutoTab 3C</a> -->
-
-    <!-- Links -->
-    <!-- <ul class="navbar-nav">
-    <li class="nav-item p-2">
-      <a class="nav-link white" href="#">Home - <?php echo $clientname ?> </a>
-    </li>
-    <li class="nav-item p-2">
-      <a class="nav-link white" href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
-    </li>
-    <li class="nav-item p-2">
-      <a class="nav-link white" href="logout.php">Logout</a>
-    </li>
-  </ul>
-</nav> -->
-
+<!-- Navbar ########################################################### -->
     <div class="topnav">
       <a class="active" href="#home">AutoTab 3C - <?php echo $clientname ?></a>
       <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
@@ -215,6 +198,9 @@ $clientname = $_SESSION['login_name'];
     </div>';
         unset($_SESSION['errormessage']);
       } ?>
+
+
+ <!-- Table ########################################################### -->
       <div class="container">
         <br>
         <h2>Available Tabs</h2>
@@ -225,8 +211,6 @@ $clientname = $_SESSION['login_name'];
         $clientid = $_SESSION['login_id'];
         $sql = "SELECT * FROM linklist WHERE clientid= '$clientid'";
         $result = $conn->query($sql);
-        $bcount = 0;
-        $notified = 0;
         if ($result->num_rows > 0) {
 
           echo "<table class='table table-striped'>
@@ -245,7 +229,6 @@ $clientname = $_SESSION['login_name'];
             $sec = ((int) $row['duration'] / 1000);
             echo "<td  valign='center' width='8%'>" . $sec . " Sec</td>";
             $status = $row['status'];
-            // echo "<td>".$row['status']=1 ? '<img src="img/green.png" width="30" height="30">' : '<img src="img/red.png" width="30" height="30">';echo"</td>";
             echo '<td  width="5%"><img src="img/' . ($status ? 'green' : 'red') . '.png" alt="' . ($status ? 'enabled' : 'disabled') . '" height="32" width="32"/></td>';
             echo "<td  width='20%'>";
             if ($row['status'] == 1) {
@@ -263,9 +246,6 @@ $clientname = $_SESSION['login_name'];
   </a></form>";
             }
 
-            //echo "<button type='button' class='btn btn-primary'>Edit</button></td>";
-            //echo '<a href="#" class="btn btn-info btn-lg">
-            //    <span class="glyphicon glyphicon-pencil"></span> </a>';
             echo "</td></tr>";
           }
         } else {
@@ -286,8 +266,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Add new TAB ################-->
-      <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+      <!-- Add new TAB #####################################################################-->
 
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -325,8 +304,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Edit Duration ################## -->
-      <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+      <!-- Edit Duration #####################################################################--> -->
 
       <div class="modal" id="my_modal">
         <div class="modal-dialog">
@@ -344,8 +322,7 @@ $clientname = $_SESSION['login_name'];
                 <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value="" />
                 <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value="" />
 
-                <!-- <input type="text" name="editduration" value=""/> -->
-            </div>
+                </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-default">Update</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -358,8 +335,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Change Password Modal ########################## -->
-      <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+      <!-- Change Password Modal #####################################################################--> -->
 
       <div class="modal fade" id="mypassModal" role="dialog">
         <div class="modal-dialog">
@@ -391,8 +367,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- About Modal ########################## -->
-      <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+      <!-- About Modal #####################################################################--> -->
 
       <div class="modal fade" id="myaboutModal" role="dialog">
         <div class="modal-dialog">
@@ -430,8 +405,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Edit Duration ################## -->
-      <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+      <!-- Edit Duration #####################################################################--> -->
 
       <div class="modal" id="my_modal">
         <div class="modal-dialog">
@@ -464,7 +438,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Modal to comfirm delete -->
+      <!-- Modal to comfirm delete #####################################################################-->-->
       <div class="modal" id="my_modal_del">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -493,7 +467,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-
+<!-- Javascriot to fill modal data #####################################################################--> -->
       <script>
         $('#my_modal').on('show.bs.modal', function(e) {
           var editduration = $(e.relatedTarget).data('book-id');
@@ -511,6 +485,9 @@ $clientname = $_SESSION['login_name'];
           $(e.currentTarget).find('input[name="deleteurlid"]').val(deleteurlid);
         });
       </script>
+
+
+<!-- Footer #####################################################################--> -->
       <!-- <footer id="footer" class="fixed-bottom bg-dark text-white-50"> -->
       <footer id="footer" class="bg-dark text-white-50">
         <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
