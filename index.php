@@ -146,6 +146,29 @@ $clientname = $_SESSION['login_name'];
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF);
 } */
+
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 16px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  /* margin-right: 3px; */
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  padding-right: 31px;
+  padding-left: 31px;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
     #footer {
       height: 50px;
       /* Height of the footer */
@@ -286,6 +309,23 @@ $clientname = $_SESSION['login_name'];
                   <input type="file" class="form-control" name="fileToUpload">
                 </div>
                 <br><br>
+                <label>Week Days </label>
+                <div class="weekDays-selector">
+  <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked/>
+  <label for="weekday-mon">M</label>
+  <input type="checkbox" id="weekday-tue" name="tue" class="weekday" value="1" checked/>
+  <label for="weekday-tue">T</label>
+  <input type="checkbox" id="weekday-wed" name="wed" class="weekday" value="1" checked/>
+  <label for="weekday-wed">W</label>
+  <input type="checkbox" id="weekday-thu" name="thu" class="weekday" value="1" checked/>
+  <label for="weekday-thu">T</label>
+  <input type="checkbox" id="weekday-fri" name="fri" class="weekday" value="1" checked/>
+  <label for="weekday-fri">F</label>
+  <input type="checkbox" id="weekday-sat" name="sat" class="weekday" value="1" checked/>
+  <label for="weekday-sat">S</label>
+  <input type="checkbox" id="weekday-sun" name="sun" class="weekday" value="1" checked/>
+  <label for="weekday-sun">S</label>
+</div><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
                 <!-- URL:  <input type="text" name="url"> -->

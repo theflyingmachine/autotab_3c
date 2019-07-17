@@ -4,6 +4,26 @@ if (!($_SESSION['login'])) {
     header('Location: login.php');
 }
 
+include("../config/config.php");
+$mon = ((!empty($_REQUEST['mon']))? 1 : 0);
+$tue = ((!empty($_REQUEST['tue']))? 1 : 0);
+$wed = ((!empty($_REQUEST['wed']))? 1 : 0);
+$thu = ((!empty($_REQUEST['thu']))? 1 : 0);
+$fri = ((!empty($_REQUEST['fri']))? 1 : 0);
+$sat = ((!empty($_REQUEST['sat']))? 1 : 0);
+$sun = ((!empty($_REQUEST['sun']))? 1 : 0);
+$allday=$mon.$tue.$wed.$thu.$fri.$sat.$sun;
+
+
+
+
+if($allday=="0000000"){
+    $_SESSION['errormessage'] = 'Oops, Please select atlease 1 day of the week..!!';
+    header("location: ../index.php");
+    exit;
+}
+
+
 //validation
 if ((empty($_REQUEST['url'])) && (($_FILES['fileToUpload']['size'] == 0))) {
     echo "URL or Flie is empty";
@@ -17,12 +37,12 @@ if (empty($_REQUEST['duration'])) {
     exit;
 }
 
-include("../config/config.php");
+
 if (!empty($_REQUEST['url'])) {
     echo $url = mysqli_real_escape_string($conn, $_POST['url']);
     $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
     $login_id = $_SESSION['login_id'];
-    $sql = "INSERT INTO linklist (link,duration,clientid,status)VALUES ('$url','$duration','$login_id',1)";
+    $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
     echo $sql;
     $result = $conn->query($sql);
     $_SESSION['message'] = 'New Tab Added Successfully';
