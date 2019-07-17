@@ -360,7 +360,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Edit Duration #####################################################################--> -->
+      <!-- Edit Duration #####################################################################-->
 
       <div class="modal" id="my_modal">
         <div class="modal-dialog">
@@ -408,7 +408,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Change Password Modal #####################################################################--> -->
+      <!-- Change Password Modal #####################################################################-->
 
       <div class="modal fade" id="mypassModal" role="dialog">
         <div class="modal-dialog">
@@ -440,7 +440,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- About Modal #####################################################################--> -->
+      <!-- About Modal #####################################################################-->
 
       <div class="modal fade" id="myaboutModal" role="dialog">
         <div class="modal-dialog">
@@ -478,7 +478,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Edit Duration #####################################################################--> -->
+      <!-- Edit Duration #####################################################################-->
 
       <div class="modal" id="my_modal">
         <div class="modal-dialog">
@@ -511,7 +511,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Modal to comfirm delete #####################################################################-->-->
+      <!-- Modal to comfirm delete #####################################################################-->
       <div class="modal" id="my_modal_del">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -540,7 +540,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-      <!-- Javascriot to fill modal data #####################################################################--> -->
+      <!-- Javascriot to fill modal data #####################################################################-->
       <script>
         $('#my_modal').on('show.bs.modal', function(e) {
           var editduration = $(e.relatedTarget).data('book-id');
@@ -577,7 +577,7 @@ $clientname = $_SESSION['login_name'];
       </script>
 
 
-      <!-- Footer #####################################################################--> -->
+      <!-- Footer #####################################################################-->
       <!-- <footer id="footer" class="fixed-bottom bg-dark text-white-50"> -->
       <footer id="footer" class="bg-dark text-white-50">
         <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
