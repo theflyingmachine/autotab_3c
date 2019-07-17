@@ -256,14 +256,14 @@ $clientname = $_SESSION['login_name'];
             echo "<td  width='20%'>";
             if ($row['status'] == 1) {
               echo "<form action='worker/deactivate.php' method='GET'>
-       <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+       <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
        <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
        <span class='glyphicon glyphicon-trash'></span>
      </a></form>";
             }
             if ($row['status'] == 0) {
               echo "<form action='worker/activate.php' method='GET'>
-    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
@@ -358,6 +358,23 @@ $clientname = $_SESSION['login_name'];
                 <label>Tab </label>
                 <input class="form-control form-control-lg" type="text" disabled name="elink" placeholder="Enter Duration in Seconds" value="" />
                 <br>
+                <label>Week Days </label>
+                <div class="weekDays-selector">
+  <input type="checkbox" id="weekdaye-mon" name="mon" class="weekday" value="1" />
+  <label for="weekday-mon">M</label>
+  <input type="checkbox" id="weekdaye-tue" name="tue" class="weekday" value="1" />
+  <label for="weekday-tue">T</label>
+  <input type="checkbox" id="weekdaye-wed" name="wed" class="weekday" value="1" />
+  <label for="weekday-wed">W</label>
+  <input type="checkbox" id="weekdaye-thu" name="thu" class="weekday" value="1" />
+  <label for="weekday-thu">T</label>
+  <input type="checkbox" id="weekdaye-fri" name="fri" class="weekday" value="1" />
+  <label for="weekday-fri">F</label>
+  <input type="checkbox" id="weekdaye-sat" name="sat" class="weekday" value="1" />
+  <label for="weekday-sat">S</label>
+  <input type="checkbox" id="weekdaye-sun" name="sun" class="weekday" value="1" />
+  <label for="weekday-sun">S</label>
+</div><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value="" />
                 <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value="" />
@@ -516,6 +533,23 @@ $clientname = $_SESSION['login_name'];
           $(e.currentTarget).find('input[name="editlink"]').val(editlink);
           var elink = $(e.relatedTarget).data('book-id2');
           $(e.currentTarget).find('input[name="elink"]').val(elink);
+
+          var mon = $(e.relatedTarget).data('mon');
+          document.getElementById("weekdaye-mon").checked = mon === 1;
+          var tue = $(e.relatedTarget).data('tue');
+          document.getElementById("weekdaye-tue").checked = tue === 1;
+          var wed = $(e.relatedTarget).data('wed');
+          document.getElementById("weekdaye-wed").checked = wed === 1;
+          var thu = $(e.relatedTarget).data('thu');
+          document.getElementById("weekdaye-thu").checked = thu === 1;
+          var fri = $(e.relatedTarget).data('fri');
+          document.getElementById("weekdaye-fri").checked = fri === 1;
+          var sat = $(e.relatedTarget).data('sat');
+          document.getElementById("weekdaye-sat").checked = sat === 1;
+          var sun = $(e.relatedTarget).data('sun');
+          document.getElementById("weekdaye-sun").checked = sun === 1;
+
+         
         });
 
         $('#my_modal_del').on('show.bs.modal', function(e) {
