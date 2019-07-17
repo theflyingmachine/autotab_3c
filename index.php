@@ -255,7 +255,7 @@ $clientname = $_SESSION['login_name'];
           while ($row = $result->fetch_assoc()) {
 
             echo "  <tr>";
-            echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['link'], 0, 100) . "</a></td>";
+            echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['link'], 0, 60) . "</a></td>";
             echo '<td valign="right" width="20%"> <div>
             <span class="label '.($row['mon'] ? 'info' : 'other').'">M</span>
             <span class="label '.($row['tue'] ? 'info' : 'other').'">T</span>
