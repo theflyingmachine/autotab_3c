@@ -147,28 +147,29 @@ $clientname = $_SESSION['login_name'];
   background: linear-gradient(to right, #0062E6, #33AEFF);
 } */
 
-.weekDays-selector input {
-  display: none!important;
-}
+    .weekDays-selector input {
+      display: none !important;
+    }
 
-.weekDays-selector input[type=checkbox] + label {
-  display: inline-block;
-  border-radius: 16px;
-  background: #dddddd;
-  height: 40px;
-  width: 30px;
-  /* margin-right: 3px; */
-  line-height: 40px;
-  text-align: center;
-  cursor: pointer;
-  padding-right: 31px;
-  padding-left: 31px;
-}
+    .weekDays-selector input[type=checkbox]+label {
+      display: inline-block;
+      border-radius: 16px;
+      background: #dddddd;
+      height: 40px;
+      width: 30px;
+      /* margin-right: 3px; */
+      line-height: 40px;
+      text-align: center;
+      cursor: pointer;
+      padding-right: 31px;
+      padding-left: 31px;
+    }
 
-.weekDays-selector input[type=checkbox]:checked + label {
-  background: #2AD705;
-  color: #ffffff;
-}
+    .weekDays-selector input[type=checkbox]:checked+label {
+      background: #2AD705;
+      color: #ffffff;
+    }
+
     #footer {
       height: 50px;
       /* Height of the footer */
@@ -186,7 +187,7 @@ $clientname = $_SESSION['login_name'];
 <body>
 
   <div id="content">
-<!-- Navbar ########################################################### -->
+    <!-- Navbar ########################################################### -->
     <div class="topnav">
       <a class="active" href="#home">AutoTab 3C - <?php echo $clientname ?></a>
       <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
@@ -223,7 +224,7 @@ $clientname = $_SESSION['login_name'];
       } ?>
 
 
- <!-- Table ########################################################### -->
+      <!-- Table ########################################################### -->
       <div class="container">
         <br>
         <h2>Available Tabs</h2>
@@ -311,21 +312,21 @@ $clientname = $_SESSION['login_name'];
                 <br><br>
                 <label>Week Days </label>
                 <div class="weekDays-selector">
-  <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked/>
-  <label for="weekday-mon">M</label>
-  <input type="checkbox" id="weekday-tue" name="tue" class="weekday" value="1" checked/>
-  <label for="weekday-tue">T</label>
-  <input type="checkbox" id="weekday-wed" name="wed" class="weekday" value="1" checked/>
-  <label for="weekday-wed">W</label>
-  <input type="checkbox" id="weekday-thu" name="thu" class="weekday" value="1" checked/>
-  <label for="weekday-thu">T</label>
-  <input type="checkbox" id="weekday-fri" name="fri" class="weekday" value="1" checked/>
-  <label for="weekday-fri">F</label>
-  <input type="checkbox" id="weekday-sat" name="sat" class="weekday" value="1" checked/>
-  <label for="weekday-sat">S</label>
-  <input type="checkbox" id="weekday-sun" name="sun" class="weekday" value="1" checked/>
-  <label for="weekday-sun">S</label>
-</div><br>
+                  <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked />
+                  <label for="weekday-mon">M</label>
+                  <input type="checkbox" id="weekday-tue" name="tue" class="weekday" value="1" checked />
+                  <label for="weekday-tue">T</label>
+                  <input type="checkbox" id="weekday-wed" name="wed" class="weekday" value="1" checked />
+                  <label for="weekday-wed">W</label>
+                  <input type="checkbox" id="weekday-thu" name="thu" class="weekday" value="1" checked />
+                  <label for="weekday-thu">T</label>
+                  <input type="checkbox" id="weekday-fri" name="fri" class="weekday" value="1" checked />
+                  <label for="weekday-fri">F</label>
+                  <input type="checkbox" id="weekday-sat" name="sat" class="weekday" value="1" checked />
+                  <label for="weekday-sat">S</label>
+                  <input type="checkbox" id="weekday-sun" name="sun" class="weekday" value="1" checked />
+                  <label for="weekday-sun">S</label>
+                </div><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
                 <!-- URL:  <input type="text" name="url"> -->
@@ -360,26 +361,26 @@ $clientname = $_SESSION['login_name'];
                 <br>
                 <label>Week Days </label>
                 <div class="weekDays-selector">
-  <input type="checkbox" id="weekdaye-mon" name="mon" class="weekday" value="1" />
-  <label for="weekday-mon">M</label>
-  <input type="checkbox" id="weekdaye-tue" name="tue" class="weekday" value="1" />
-  <label for="weekday-tue">T</label>
-  <input type="checkbox" id="weekdaye-wed" name="wed" class="weekday" value="1" />
-  <label for="weekday-wed">W</label>
-  <input type="checkbox" id="weekdaye-thu" name="thu" class="weekday" value="1" />
-  <label for="weekday-thu">T</label>
-  <input type="checkbox" id="weekdaye-fri" name="fri" class="weekday" value="1" />
-  <label for="weekday-fri">F</label>
-  <input type="checkbox" id="weekdaye-sat" name="sat" class="weekday" value="1" />
-  <label for="weekday-sat">S</label>
-  <input type="checkbox" id="weekdaye-sun" name="sun" class="weekday" value="1" />
-  <label for="weekday-sun">S</label>
-</div><br>
+                  <input type="checkbox" id="weekdaye-mon" name="mon" class="weekday" value="1" />
+                  <label for="weekdaye-mon">M</label>
+                  <input type="checkbox" id="weekdaye-tue" name="tue" class="weekday" value="1" />
+                  <label for="weekdaye-tue">T</label>
+                  <input type="checkbox" id="weekdaye-wed" name="wed" class="weekday" value="1" />
+                  <label for="weekdaye-wed">W</label>
+                  <input type="checkbox" id="weekdaye-thu" name="thu" class="weekday" value="1" />
+                  <label for="weekdaye-thu">T</label>
+                  <input type="checkbox" id="weekdaye-fri" name="fri" class="weekday" value="1" />
+                  <label for="weekdaye-fri">F</label>
+                  <input type="checkbox" id="weekdaye-sat" name="sat" class="weekday" value="1" />
+                  <label for="weekdaye-sat">S</label>
+                  <input type="checkbox" id="weekdaye-sun" name="sun" class="weekday" value="1" />
+                  <label for="weekdaye-sun">S</label>
+                </div><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value="" />
                 <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value="" />
 
-                </div>
+            </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-default">Update</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -524,7 +525,7 @@ $clientname = $_SESSION['login_name'];
 
 
 
-<!-- Javascriot to fill modal data #####################################################################--> -->
+      <!-- Javascriot to fill modal data #####################################################################--> -->
       <script>
         $('#my_modal').on('show.bs.modal', function(e) {
           var editduration = $(e.relatedTarget).data('book-id');
@@ -549,7 +550,7 @@ $clientname = $_SESSION['login_name'];
           var sun = $(e.relatedTarget).data('sun');
           document.getElementById("weekdaye-sun").checked = sun === 1;
 
-         
+
         });
 
         $('#my_modal_del').on('show.bs.modal', function(e) {
@@ -561,7 +562,7 @@ $clientname = $_SESSION['login_name'];
       </script>
 
 
-<!-- Footer #####################################################################--> -->
+      <!-- Footer #####################################################################--> -->
       <!-- <footer id="footer" class="fixed-bottom bg-dark text-white-50"> -->
       <footer id="footer" class="bg-dark text-white-50">
         <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
