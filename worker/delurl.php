@@ -20,7 +20,6 @@ if (isset($_REQUEST['deleteurlid'])) {
             if (strpos($row['link'], 'autotab_3c/upload/') !== false) {
                // echo $path= str_replace("http://". gethostname() ."/autotab_3c/upload/","upload/",$row['link']);
                 echo $path = strstr($row['link'], 'upload/');
-                exit;
                 chdir("..");
                 unlink($path);
               
