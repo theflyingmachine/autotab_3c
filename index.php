@@ -312,7 +312,7 @@ $clientname = $_SESSION['login_name'];
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
               <h4 class="modal-title">Add New Tab</h4>
             </div>
             <div class="modal-body">
@@ -366,7 +366,7 @@ $clientname = $_SESSION['login_name'];
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
               <h4 class="modal-title">Edit Tab Duration</h4>
             </div>
             <div class="modal-body">
@@ -415,7 +415,7 @@ $clientname = $_SESSION['login_name'];
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
               <h4 class="modal-title">Change Password</h4>
             </div>
             <div class="modal-body">
@@ -460,7 +460,7 @@ $clientname = $_SESSION['login_name'];
                   <H2>AutoTab 3c</H2>
                   AutoTab is a platform for creating, managing and deploying digital content in a reliable and user-friendly dashboard that gives users total control over how and where content is played across a network of screens, ensuring relevance to current audiences.
                   <br>
-                  Version: 2.0.1
+                  Version: 2.0.5
                   <br>
 
                 </div>
@@ -484,7 +484,7 @@ $clientname = $_SESSION['login_name'];
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
               <h4 class="modal-title">Edit Tab Duration</h4>
             </div>
             <div class="modal-body">
@@ -516,7 +516,7 @@ $clientname = $_SESSION['login_name'];
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
               <h4 class="modal-title">Delete Tab</h4>
             </div>
             <div class="modal-body">

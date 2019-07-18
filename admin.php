@@ -286,7 +286,7 @@ $clientname = "Admin";
                 <H2>AutoTab 3c</H2>
                 AutoTab is a platform for creating, managing and deploying digital content in a reliable and user-friendly dashboard that gives users total control over how and where content is played across a network of screens, ensuring relevance to current audiences.
                 <br>
-                Version: 2.0.1
+                Version: 2.0.5
                 <br>
 
               </div>
