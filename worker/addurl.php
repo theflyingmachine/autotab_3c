@@ -104,8 +104,8 @@ if (!empty($_REQUEST['url'])) {
             echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
-            $sql = "INSERT INTO linklist (link,duration,clientid,status)VALUES ('$url','$duration','$login_id',1)";
-            echo $sql;
+            $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
+            //echo $sql;
             $result = $conn->query($sql);
             $_SESSION['message'] = 'New Tab Added Successfully';
             header("location: ../index.php");

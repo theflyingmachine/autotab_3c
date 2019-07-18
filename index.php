@@ -159,7 +159,7 @@ $clientname = $_SESSION['login_name'];
       height: 40px;
       width: 30px;
       /* margin-right: 3px; */
-      
+
       line-height: 40px;
       /* text-align: center; */
       cursor: pointer;
@@ -172,11 +172,32 @@ $clientname = $_SESSION['login_name'];
       color: #ffffff;
     }
 
-    .success {background-color: #4CAF50;} /* Green */
-    .info {background-color: #2196F3;} /* Blue */
-    .warning {background-color: #ff9800;} /* Orange */
-    .danger {background-color: #f44336;} /* Red */ 
-    .other {background-color: #e7e7e7; color: black;} /* Gray */ 
+    .success {
+      background-color: #4CAF50;
+    }
+
+    /* Green */
+    .info {
+      background-color: #2196F3;
+    }
+
+    /* Blue */
+    .warning {
+      background-color: #ff9800;
+    }
+
+    /* Orange */
+    .danger {
+      background-color: #f44336;
+    }
+
+    /* Red */
+    .other {
+      background-color: #e7e7e7;
+      color: black;
+    }
+
+    /* Gray */
     #footer {
       height: 50px;
       /* Height of the footer */
@@ -259,13 +280,13 @@ $clientname = $_SESSION['login_name'];
             echo "  <tr>";
             echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['link'], 0, 60) . "</a></td>";
             echo '<td valign="right" width="20%"> <div>
-            <span class="label '.($row['mon'] ? 'info' : 'other').'">M</span>
-            <span class="label '.($row['tue'] ? 'info' : 'other').'">T</span>
-            <span class="label '.($row['wed'] ? 'info' : 'other').'">W</span>
-            <span class="label '.($row['thu'] ? 'info' : 'other').'">T</span>
-            <span class="label '.($row['fri'] ? 'info' : 'other').'">F</span>
-            <span class="label '.($row['sat'] ? 'info' : 'other').'">S</span>
-            <span class="label '.($row['sun'] ? 'info' : 'other').'">S</span>
+            <span class="label ' . ($row['mon'] ? 'info' : 'other') . '">M</span>
+            <span class="label ' . ($row['tue'] ? 'info' : 'other') . '">T</span>
+            <span class="label ' . ($row['wed'] ? 'info' : 'other') . '">W</span>
+            <span class="label ' . ($row['thu'] ? 'info' : 'other') . '">T</span>
+            <span class="label ' . ($row['fri'] ? 'info' : 'other') . '">F</span>
+            <span class="label ' . ($row['sat'] ? 'info' : 'other') . '">S</span>
+            <span class="label ' . ($row['sun'] ? 'info' : 'other') . '">S</span>
             </div></td>';
             $sec = ((int) $row['duration'] / 1000);
             echo "<td  valign='center' width='8%'>" . $sec . " Sec</td>";
@@ -551,6 +572,8 @@ $clientname = $_SESSION['login_name'];
       <footer id="footer" class="bg-dark text-white-50">
         <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
       </footer>
+    </div>
+  </div>
 </body>
 
 </html>
