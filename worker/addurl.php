@@ -82,8 +82,13 @@ if (!empty($_REQUEST['url'])) {
     }
     // Allow certain file formats
     if (
-        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif"
+        $imageFileType != "jpg" && 
+        $imageFileType != "png" && 
+        $imageFileType != "avi" &&
+        $imageFileType != "mp4" &&
+        $imageFileType != "pdf" &&
+        $imageFileType != "mkv" &&
+        $imageFileType != "gif"
     ) {
         $_SESSION['errormessage'] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed!!';
         header("location: ../index.php");
