@@ -107,7 +107,7 @@ if (!empty($_REQUEST['url'])) {
             
             //Manage Player based on file type
             if ($imageFileType == "mp4"){
-            echo $url = "http://" . gethostname() ."/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
+            echo $url = "http://" . gethostname() ."/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
             }else
             echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
