@@ -104,8 +104,11 @@ if (!empty($_REQUEST['url'])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-            //if (gethostname()=="W1752027")
-
+            
+            //Manage Player based on file type
+            if ($imageFileType == "mp4"){
+            echo $url = "http://" . gethostname() ."/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
+            }else
             echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
