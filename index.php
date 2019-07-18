@@ -79,7 +79,7 @@ $clientname = $_SESSION['login_name'];
 
     .files:before {
       position: absolute;
-      bottom: 10px;
+      bottom: 1px;
       left: 0;
       pointer-events: none;
       width: 100%;
@@ -87,9 +87,9 @@ $clientname = $_SESSION['login_name'];
       height: 57px;
       content: "or drag it here. ";
       display: block;
-      margin: 0 auto;
+      margin: 5 auto;
       color: #2ea591;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: capitalize;
       text-align: center;
     }
@@ -138,6 +138,7 @@ $clientname = $_SESSION['login_name'];
 
     #sticky-footer {
       flex-shrink: none;
+      width: 100%;
     }
 
     /* Other Classes for Page Styling */
@@ -158,11 +159,12 @@ $clientname = $_SESSION['login_name'];
       height: 40px;
       width: 30px;
       /* margin-right: 3px; */
+      
       line-height: 40px;
-      text-align: center;
+      /* text-align: center; */
       cursor: pointer;
-      padding-right: 31px;
-      padding-left: 31px;
+      padding-right: 45px;
+      padding-left: 18px;
     }
 
     .weekDays-selector input[type=checkbox]:checked+label {
@@ -328,19 +330,19 @@ $clientname = $_SESSION['login_name'];
                 <label>Week Days </label>
                 <div class="weekDays-selector">
                   <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked />
-                  <label for="weekday-mon">M</label>
+                  <label for="weekday-mon">Mon</label>
                   <input type="checkbox" id="weekday-tue" name="tue" class="weekday" value="1" checked />
-                  <label for="weekday-tue">T</label>
+                  <label for="weekday-tue">Tue</label>
                   <input type="checkbox" id="weekday-wed" name="wed" class="weekday" value="1" checked />
-                  <label for="weekday-wed">W</label>
+                  <label for="weekday-wed">Wed</label>
                   <input type="checkbox" id="weekday-thu" name="thu" class="weekday" value="1" checked />
-                  <label for="weekday-thu">T</label>
+                  <label for="weekday-thu">Thu</label>
                   <input type="checkbox" id="weekday-fri" name="fri" class="weekday" value="1" checked />
-                  <label for="weekday-fri">F</label>
+                  <label for="weekday-fri">Fri</label>
                   <input type="checkbox" id="weekday-sat" name="sat" class="weekday" value="1" checked />
-                  <label for="weekday-sat">S</label>
+                  <label for="weekday-sat">Sat</label>
                   <input type="checkbox" id="weekday-sun" name="sun" class="weekday" value="1" checked />
-                  <label for="weekday-sun">S</label>
+                  <label for="weekday-sun">Sun</label>
                 </div><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
@@ -377,19 +379,19 @@ $clientname = $_SESSION['login_name'];
                 <label>Week Days </label>
                 <div class="weekDays-selector">
                   <input type="checkbox" id="weekdaye-mon" name="mon" class="weekday" value="1" />
-                  <label for="weekdaye-mon">M</label>
+                  <label for="weekdaye-mon">Mon</label>
                   <input type="checkbox" id="weekdaye-tue" name="tue" class="weekday" value="1" />
-                  <label for="weekdaye-tue">T</label>
+                  <label for="weekdaye-tue">Tue</label>
                   <input type="checkbox" id="weekdaye-wed" name="wed" class="weekday" value="1" />
-                  <label for="weekdaye-wed">W</label>
+                  <label for="weekdaye-wed">Wed</label>
                   <input type="checkbox" id="weekdaye-thu" name="thu" class="weekday" value="1" />
-                  <label for="weekdaye-thu">T</label>
+                  <label for="weekdaye-thu">Thu</label>
                   <input type="checkbox" id="weekdaye-fri" name="fri" class="weekday" value="1" />
-                  <label for="weekdaye-fri">F</label>
+                  <label for="weekdaye-fri">Fri</label>
                   <input type="checkbox" id="weekdaye-sat" name="sat" class="weekday" value="1" />
-                  <label for="weekdaye-sat">S</label>
+                  <label for="weekdaye-sat">Sat</label>
                   <input type="checkbox" id="weekdaye-sun" name="sun" class="weekday" value="1" />
-                  <label for="weekdaye-sun">S</label>
+                  <label for="weekdaye-sun">Sun</label>
                 </div><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value="" />
@@ -474,39 +476,6 @@ $clientname = $_SESSION['login_name'];
           </div>
         </div>
       </div>
-
-
-
-
-      <!-- Edit Duration #####################################################################-->
-
-      <div class="modal" id="my_modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-              <h4 class="modal-title">Edit Tab Duration</h4>
-            </div>
-            <div class="modal-body">
-              <form action=worker/edittab.php method="POST">
-                <label>Tab </label>
-                <input class="form-control form-control-lg" type="text" disabled name="elink" placeholder="Enter Duration in Seconds" value="" />
-                <br>
-                <label>Duration </label>
-                <input class="form-control form-control-lg" type="text" name="editduration" placeholder="Enter Duration in Seconds" value="" />
-                <input class="form-control form-control-lg" type="hidden" name="editlink" placeholder="Enter Duration in Seconds" value="" />
-
-                <!-- <input type="text" name="editduration" value=""/> -->
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-default">Update</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
 
 
 
