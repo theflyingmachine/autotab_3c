@@ -568,8 +568,8 @@ $clientname = $_SESSION['login_name'];
 
 
       <!-- Footer #####################################################################-->
-      <!-- <footer id="footer" class="fixed-bottom bg-dark text-white-50"> -->
-      <footer id="footer" class="bg-dark text-white-50">
+      <footer id="footer" class="fixed-bottom bg-dark text-white-50">
+      <!-- <footer id="footer" class="bg-dark text-white-50"> -->
         <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
       </footer>
     </div>
