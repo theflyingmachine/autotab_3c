@@ -28,6 +28,8 @@ $clientname = $_SESSION['login_name'];
   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -302,15 +304,15 @@ input:checked + .slider:before {
   <div id="content">
     <!-- Navbar ########################################################### -->
     <div class="topnav">
-      <a class="active" href="#home">AutoTab 3C - <?php echo $clientname ?></a>
-      <a href="#" data-toggle="modal" data-target="#myModal">Add New Tab</a>
-      <a href="http://corpansimstr00/autotab_3c/autoTab.zip">Download Client</a>
-      <a href="#" data-toggle="modal" data-target="#mypassModal">Change Password</a>
-      <a href="#" data-toggle="modal" data-target="#myaboutModal">About</a>
+      <a class="active" href="#home"><i class="fa fa-bolt" aria-hidden="true"></i> AutoTab 3C - <?php echo $clientname ?></a>
+      <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Tab</a>
+      <a href="http://corpansimstr00/autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
+      <a href="#" data-toggle="modal" data-target="#mypassModal"><i class="fa fa-cogs" aria-hidden="true"></i> Change Password</a>
+      <a href="#" data-toggle="modal" data-target="#myaboutModal"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
       <!-- <a href="#contact">Contact</a> -->
       <div class="topnav-right">
         <!-- <a href="#search">Search</a> -->
-        <a href="logout.php">Logout</a>
+        <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
       </div>
     </div>
 
