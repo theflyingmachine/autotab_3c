@@ -26,14 +26,14 @@ $clientname = $_SESSION['login_name'];
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
   <style>
     .white {
@@ -217,82 +217,82 @@ $clientname = $_SESSION['login_name'];
       align-items: center;
       justify-content: center;
     }
+
     .switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 24px;
-}
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 24px;
+    }
 
- 
 
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
 
- 
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
 
- 
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
 
- 
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
 
- 
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
 
- 
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
-}
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
 
- 
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
 
- 
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
 
-.slider.round:before {
-  border-radius: 50%;
-}
 
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
+    }
+
+
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
   </style>
 
 
@@ -434,7 +434,7 @@ input:checked + .slider:before {
                   <label>Upload Your File </label>
                   <input type="file" class="form-control" name="fileToUpload">
                 </div>
-                
+
                 <label>Week Days </label>
                 <div class="weekDays-selector">
                   <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked />
@@ -455,38 +455,38 @@ input:checked + .slider:before {
                 <label>Date and Time Range </label>
                 <!-- <input type="checkbox" checked data-toggle="toggle" data-size="xs"> -->
                 <label class="switch">
-  <input type="checkbox" id="myCheck" onclick="myFunction()">
-  <span class="slider round"></span>
-</label>
-                <input style="display:none" class="form-control form-control-lg" id="rangepicker" type="text" name="datetimes" placeholder="Select Date Range (if any)"/>
+                  <input type="checkbox" id="myCheck" onclick="myFunction()">
+                  <span class="slider round"></span>
+                </label>
+                <input style="display:none" class="form-control form-control-lg" id="rangepicker" type="text" name="datetimes" placeholder="Select Date Range (if any)" />
 
-  <script>
-function myFunction() {
-  var checkBox = document.getElementById("myCheck");
-  var div = document.getElementById("rangepicker");
-  if (checkBox.checked == true){
-    div.style.display = "block";
-  } else {
-     div.style.display = "none";
-  }
-}
-</script>
-<script>
-$(function() {
-  $('input[name="datetimes"]').daterangepicker({
-    timePicker: true,
-    startDate: moment().startOf('hour'),
-    minDate: moment().startOf('hour'),
-    endDate: moment().startOf('hour').add(32, 'hour'),
-    orientation: "auto",
-    opens: "center",
-    drops: "up",
-    locale: {
-      format: 'M/DD hh:mm A'
-    }
-  });
-});
-</script><br>
+                <script>
+                  function myFunction() {
+                    var checkBox = document.getElementById("myCheck");
+                    var div = document.getElementById("rangepicker");
+                    if (checkBox.checked == true) {
+                      div.style.display = "block";
+                    } else {
+                      div.style.display = "none";
+                    }
+                  }
+                </script>
+                <script>
+                  $(function() {
+                    $('input[name="datetimes"]').daterangepicker({
+                      timePicker: true,
+                      startDate: moment().startOf('hour'),
+                      minDate: moment().startOf('hour'),
+                      endDate: moment().startOf('hour').add(32, 'hour'),
+                      orientation: "auto",
+                      opens: "center",
+                      drops: "up",
+                      locale: {
+                        format: 'M/DD hh:mm A'
+                      }
+                    });
+                  });
+                </script><br>
                 <label>Duration </label>
                 <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
                 <!-- URL:  <input type="text" name="url"> -->
@@ -691,7 +691,7 @@ $(function() {
 
       <!-- Footer #####################################################################-->
       <footer id="footer" class="fixed-bottom bg-dark text-white-50">
-      <!-- <footer id="footer" class="bg-dark text-white-50"> -->
+        <!-- <footer id="footer" class="bg-dark text-white-50"> -->
         <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; AutoTab 3C</small>
       </footer>
     </div>
