@@ -35,6 +35,7 @@ $clientname = $_SESSION['login_name'];
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+  
   <style>
     .white {
       color: white !important;
@@ -304,7 +305,7 @@ $clientname = $_SESSION['login_name'];
   <div id="content">
     <!-- Navbar ########################################################### -->
     <div class="topnav">
-      <a class="active" href="#home"><i class="fa fa-bolt" aria-hidden="true"></i> AutoTab 3C - <?php echo $clientname ?></a>
+      <a class="active" href="#home"> <img src="img/favicon.ico" alt="AutoTab" height="25" width="25"/><strong> AutoTab 3C - <?php echo $clientname ?></strong></a>
       <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Tab</a>
       <a href="http://corpansimstr00/autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
       <a href="#" data-toggle="modal" data-target="#mypassModal"><i class="fa fa-cogs" aria-hidden="true"></i> Change Password</a>
@@ -373,8 +374,10 @@ $clientname = $_SESSION['login_name'];
             <span class="label ' . ($row['thu'] ? 'info' : 'other') . '">T</span>
             <span class="label ' . ($row['fri'] ? 'info' : 'other') . '">F</span>
             <span class="label ' . ($row['sat'] ? 'info' : 'other') . '">S</span>
-            <span class="label ' . ($row['sun'] ? 'info' : 'other') . '">S</span>
-            </div></td>';
+            <span class="label ' . ($row['sun'] ? 'info' : 'other') . '">S</span>';
+            if ($row['expdate'])
+            echo ' <img src="img/clock.png" alt="Expires" height="30" width="30"  data-toggle="tooltip" data-placement="top" title="Start: '.$row['expdate'] .'&nbsp; &nbsp; End: '.$row['expdate'].'"/>';
+            echo '</div></td>';
             $sec = ((int) $row['duration'] / 1000);
             echo "<td  valign='center' width='8%'>" . $sec . " Sec</td>";
             $status = $row['status'];
@@ -455,10 +458,10 @@ $clientname = $_SESSION['login_name'];
                 <label>Date and Time Range </label>
                 <!-- <input type="checkbox" checked data-toggle="toggle" data-size="xs"> -->
                 <label class="switch">
-                  <input type="checkbox" id="myCheck" onclick="myFunction()">
+                  <input type="checkbox" name="expdate" id="myCheck" onclick="myFunction()" value="true">
                   <span class="slider round"></span>
                 </label>
-                <input style="display:none" class="form-control form-control-lg" id="rangepicker" type="text" name="datetimes" placeholder="Select Date Range (if any)" />
+                <input style="display:none" class="form-control form-control-lg" id="rangepicker" type="text" name="datetimes"/>
 
                 <script>
                   function myFunction() {
@@ -482,7 +485,7 @@ $clientname = $_SESSION['login_name'];
                       opens: "center",
                       drops: "up",
                       locale: {
-                        format: 'M/DD hh:mm A'
+                        format: 'DD/MM/YYYY hh:mm A'
                       }
                     });
                   });
@@ -686,6 +689,10 @@ $clientname = $_SESSION['login_name'];
           var deleteurlid = $(e.relatedTarget).data('deleteurlid');
           $(e.currentTarget).find('input[name="deleteurlid"]').val(deleteurlid);
         });
+
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
       </script>
 
 

@@ -3,6 +3,25 @@ session_start();
 if (!($_SESSION['login'])) {
     header('Location: login.php');
 }
+echo "<table>";
+foreach ($_POST as $key => $value) {
+    echo "<tr>";
+    echo "<td>";
+    echo $key;
+    echo "</td>";
+    echo "<td>";
+    echo $value;
+    echo "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+$expdate = ((!empty($_REQUEST['expdate']))? true : false);
+if ($expdate){
+echo $startdate = substr($_POST['datetimes'], 0, 20);
+echo "<br>";
+echo $enddate = substr($_POST['datetimes'], -20);
+}
+// exit;
 
 include("../config/config.php");
 $mon = ((!empty($_REQUEST['mon']))? 1 : 0);
@@ -42,7 +61,11 @@ if (!empty($_REQUEST['url'])) {
     echo $url = mysqli_real_escape_string($conn, $_POST['url']);
     $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
     $login_id = $_SESSION['login_id'];
-    $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
+    if ($expdate){
+        $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',1)";
+    }else{
+        $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
+    }
     echo $sql;
     $result = $conn->query($sql);
     $_SESSION['message'] = 'New Tab Added Successfully';
@@ -112,8 +135,11 @@ if (!empty($_REQUEST['url'])) {
             echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
+            if ($expdate){
+            $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',1)";
+            }else{
             $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
-            //echo $sql;
+            }//echo $sql;
             $result = $conn->query($sql);
             $_SESSION['message'] = 'New Tab Added Successfully';
             header("location: ../index.php");
