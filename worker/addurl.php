@@ -62,7 +62,7 @@ if (!empty($_REQUEST['url'])) {
     $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
     $login_id = $_SESSION['login_id'];
     if ($expdate){
-        $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',1)";
+        $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',2)";
     }else{
         $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
     }
@@ -136,7 +136,7 @@ if (!empty($_REQUEST['url'])) {
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
             if ($expdate){
-            $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',1)";
+            $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',2)";
             }else{
             $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
             }//echo $sql;

@@ -376,13 +376,30 @@ $clientname = $_SESSION['login_name'];
             <span class="label ' . ($row['sat'] ? 'info' : 'other') . '">S</span>
             <span class="label ' . ($row['sun'] ? 'info' : 'other') . '">S</span>';
             if ($row['expdate'])
-            echo ' <img src="img/clock.png" alt="Expires" height="30" width="30"  data-toggle="tooltip" data-placement="top" title="Start: '.$row['expdate'] .'&nbsp; &nbsp; End: '.$row['expdate'].'"/>';
+            echo ' <img src="img/clock.png" alt="Expires" height="30" width="30"  data-toggle="tooltip" data-placement="top" title="Start: '.$row['startdate'] .'&nbsp; &nbsp; End: '.$row['expdate'].'"/>';
             echo '</div></td>';
             $sec = ((int) $row['duration'] / 1000);
             echo "<td  valign='center' width='8%'>" . $sec . " Sec</td>";
             $status = $row['status'];
-            echo '<td  width="5%"><img src="img/' . ($status ? 'green' : 'red') . '.png" alt="' . ($status ? 'enabled' : 'disabled') . '" height="32" width="32"/></td>';
+            $statusicon = array("red","green","schedule","expired");
+            echo '<td  width="5%"><img src="img/' . $statusicon[$status] . '.png" alt="' .  $statusicon[$status] . '" height="32" width="32"/></td>';
             echo "<td  width='20%'>";
+            if ($row['status'] == 3) {
+              echo "<form action='worker/activate.php' method='GET'>
+    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button disabled type='submit' style='width:100px' class='btn btn-danger'>Expired</button><a disabled href='#' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+    <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
+    <span class='glyphicon glyphicon-trash'></span>
+  </a></form>";
+            }
+
+            if ($row['status'] == 2) {
+              echo "<form action='worker/activate.php' method='GET'>
+    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button disabled type='submit' style='width:100px' class='btn btn-info'>Scheduled</button><a disabled href='#' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+    <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
+    <span class='glyphicon glyphicon-trash'></span>
+  </a></form>";
+            }
+
             if ($row['status'] == 1) {
               echo "<form action='worker/deactivate.php' method='GET'>
        <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
