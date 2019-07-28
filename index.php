@@ -495,8 +495,8 @@ $clientname = $_SESSION['login_name'];
                   $(function() {
                     $('input[name="datetimes"]').daterangepicker({
                       timePicker: true,
-                      startDate: moment().startOf('hour'),
-                      minDate: moment().startOf('hour'),
+                      startDate: moment().startOf('minute'),
+                      minDate: moment().startOf('minute').add(2, 'minute'),
                       endDate: moment().startOf('hour').add(32, 'hour'),
                       orientation: "auto",
                       opens: "center",

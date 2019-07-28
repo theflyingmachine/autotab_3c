@@ -17,9 +17,9 @@ foreach ($_POST as $key => $value) {
 echo "</table>";
 $expdate = ((!empty($_REQUEST['expdate']))? true : false);
 if ($expdate){
-echo $startdate = substr($_POST['datetimes'], 0, 20);
+echo $startdate = substr($_POST['datetimes'], 0, 19);
 echo "<br>";
-echo $enddate = substr($_POST['datetimes'], -20);
+echo $enddate = substr($_POST['datetimes'], -19);
 }
 // exit;
 
