@@ -357,7 +357,7 @@ $clientname = $_SESSION['login_name'];
 	<thead>
       <tr>
         <th>Link</th>
-        <th>Days of Week</th>
+        <th>Schedule</th>
         <th>Duration</th>
         <th>Status</th>
         <th>Action</th>
