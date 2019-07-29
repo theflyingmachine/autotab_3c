@@ -23,15 +23,15 @@ if (isset($_REQUEST['clientid'])) {
 
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-            echo "http://". gethostname() ."/autotab_3c/player/errornoactivetab.html 30000";
+            echo "http://" . gethostname() . "/autotab_3c/player/errornoactivetab.html 30000";
         } else {
             $sql = "SELECT client FROM client WHERE clientid= '$clientid'";
 
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
-                echo "http://". gethostname() ."/autotab_3c/player/errornotab.html 30000";
-            }else {
-                echo "http://". gethostname() ."/autotab_3c/player/errorinvalidclient.html 30000";
+                echo "http://" . gethostname() . "/autotab_3c/player/errornotab.html 30000";
+            } else {
+                echo "http://" . gethostname() . "/autotab_3c/player/errorinvalidclient.html 30000";
             }
         }
     }

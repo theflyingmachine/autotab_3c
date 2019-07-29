@@ -18,14 +18,13 @@ if (isset($_REQUEST['deleteurlid'])) {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             if (strpos($row['link'], 'autotab_3c/upload/') !== false) {
-               // echo $path= str_replace("http://". gethostname() ."/autotab_3c/upload/","upload/",$row['link']);
+                // echo $path= str_replace("http://". gethostname() ."/autotab_3c/upload/","upload/",$row['link']);
                 echo $path = strstr($row['link'], 'upload/');
                 chdir("..");
                 unlink($path);
-              
             }
         }
-    }    
+    }
 
     echo $sql = "DELETE FROM linklist WHERE linkid='$delid' AND clientid='$login_id'";
     //echo $sql;

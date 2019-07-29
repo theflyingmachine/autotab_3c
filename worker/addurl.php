@@ -15,28 +15,28 @@ foreach ($_POST as $key => $value) {
     echo "</tr>";
 }
 echo "</table>";
-$expdate = ((!empty($_REQUEST['expdate']))? true : false);
-if ($expdate){
-echo $startdate = substr($_POST['datetimes'], 0, 19);
-echo "<br>";
-echo $enddate = substr($_POST['datetimes'], -19);
+$expdate = ((!empty($_REQUEST['expdate'])) ? true : false);
+if ($expdate) {
+    echo $startdate = substr($_POST['datetimes'], 0, 19);
+    echo "<br>";
+    echo $enddate = substr($_POST['datetimes'], -19);
 }
 // exit;
 
 include("../config/config.php");
-$mon = ((!empty($_REQUEST['mon']))? 1 : 0);
-$tue = ((!empty($_REQUEST['tue']))? 1 : 0);
-$wed = ((!empty($_REQUEST['wed']))? 1 : 0);
-$thu = ((!empty($_REQUEST['thu']))? 1 : 0);
-$fri = ((!empty($_REQUEST['fri']))? 1 : 0);
-$sat = ((!empty($_REQUEST['sat']))? 1 : 0);
-$sun = ((!empty($_REQUEST['sun']))? 1 : 0);
-$allday=$mon.$tue.$wed.$thu.$fri.$sat.$sun;
+$mon = ((!empty($_REQUEST['mon'])) ? 1 : 0);
+$tue = ((!empty($_REQUEST['tue'])) ? 1 : 0);
+$wed = ((!empty($_REQUEST['wed'])) ? 1 : 0);
+$thu = ((!empty($_REQUEST['thu'])) ? 1 : 0);
+$fri = ((!empty($_REQUEST['fri'])) ? 1 : 0);
+$sat = ((!empty($_REQUEST['sat'])) ? 1 : 0);
+$sun = ((!empty($_REQUEST['sun'])) ? 1 : 0);
+$allday = $mon . $tue . $wed . $thu . $fri . $sat . $sun;
 
 
 
 
-if($allday=="0000000"){
+if ($allday == "0000000") {
     $_SESSION['errormessage'] = 'Oops, Please select atlease 1 day of the week..!!';
     header("location: ../index.php");
     exit;
@@ -61,9 +61,9 @@ if (!empty($_REQUEST['url'])) {
     echo $url = mysqli_real_escape_string($conn, $_POST['url']);
     $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
     $login_id = $_SESSION['login_id'];
-    if ($expdate){
+    if ($expdate) {
         $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',2)";
-    }else{
+    } else {
         $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
     }
     echo $sql;
@@ -105,8 +105,8 @@ if (!empty($_REQUEST['url'])) {
     }
     // Allow certain file formats
     if (
-        $imageFileType != "jpg" && 
-        $imageFileType != "png" && 
+        $imageFileType != "jpg" &&
+        $imageFileType != "png" &&
         $imageFileType != "avi" &&
         $imageFileType != "mp4" &&
         $imageFileType != "pdf" &&
@@ -127,19 +127,19 @@ if (!empty($_REQUEST['url'])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-            
+
             //Manage Player based on file type
-            if ($imageFileType == "mp4"){
-            echo $url = "http://" . gethostname() ."/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
-            }else
-            echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
+            if ($imageFileType == "mp4") {
+                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
+            } else
+                echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
-            if ($expdate){
-            $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',2)";
-            }else{
-            $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
-            }//echo $sql;
+            if ($expdate) {
+                $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,startdate,expdate,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun','$startdate','$enddate',2)";
+            } else {
+                $sql = "INSERT INTO linklist (link,duration,clientid,mon,tue,wed,thu,fri,sat,sun,status)VALUES ('$url','$duration','$login_id','$mon','$tue','$wed','$thu','$fri','$sat','$sun',1)";
+            } //echo $sql;
             $result = $conn->query($sql);
             $_SESSION['message'] = 'New Tab Added Successfully';
             header("location: ../index.php");

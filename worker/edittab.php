@@ -6,16 +6,16 @@ if (!($_SESSION['login'])) {
 
 
 include("../config/config.php");
-$mon = ((!empty($_REQUEST['mon']))? 1 : 0);
-$tue = ((!empty($_REQUEST['tue']))? 1 : 0);
-$wed = ((!empty($_REQUEST['wed']))? 1 : 0);
-$thu = ((!empty($_REQUEST['thu']))? 1 : 0);
-$fri = ((!empty($_REQUEST['fri']))? 1 : 0);
-$sat = ((!empty($_REQUEST['sat']))? 1 : 0);
-$sun = ((!empty($_REQUEST['sun']))? 1 : 0);
-$allday=$mon.$tue.$wed.$thu.$fri.$sat.$sun;
+$mon = ((!empty($_REQUEST['mon'])) ? 1 : 0);
+$tue = ((!empty($_REQUEST['tue'])) ? 1 : 0);
+$wed = ((!empty($_REQUEST['wed'])) ? 1 : 0);
+$thu = ((!empty($_REQUEST['thu'])) ? 1 : 0);
+$fri = ((!empty($_REQUEST['fri'])) ? 1 : 0);
+$sat = ((!empty($_REQUEST['sat'])) ? 1 : 0);
+$sun = ((!empty($_REQUEST['sun'])) ? 1 : 0);
+$allday = $mon . $tue . $wed . $thu . $fri . $sat . $sun;
 
-if($allday=="0000000"){
+if ($allday == "0000000") {
     $_SESSION['errormessage'] = 'Oops, Please select atlease 1 day of the week..!!';
     header("location: ../index.php");
     exit;

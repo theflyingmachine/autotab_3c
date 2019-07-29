@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 16, 2019 at 12:33 AM
--- Server version: 5.7.26-0ubuntu0.18.04.1
--- PHP Version: 7.2.20-1+ubuntu18.04.1+deb.sury.org+1
+-- Host: 127.0.0.1
+-- Generation Time: Jul 29, 2019 at 03:12 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -43,7 +45,15 @@ CREATE TABLE `linklist` (
   `link` varchar(512) NOT NULL,
   `duration` int(10) NOT NULL,
   `clientid` varchar(35) NOT NULL,
-  `expdate` date DEFAULT NULL,
+  `mon` int(1) NOT NULL,
+  `tue` int(1) NOT NULL,
+  `wed` int(1) NOT NULL,
+  `thu` int(1) NOT NULL,
+  `fri` int(1) NOT NULL,
+  `sat` int(1) NOT NULL,
+  `sun` int(1) NOT NULL,
+  `startdate` varchar(20) DEFAULT NULL,
+  `expdate` varchar(20) DEFAULT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -55,8 +65,7 @@ CREATE TABLE `linklist` (
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`clientid`),
-  ADD UNIQUE KEY `client` (`client`);
+  ADD PRIMARY KEY (`clientid`);
 
 --
 -- Indexes for table `linklist`
@@ -72,12 +81,15 @@ ALTER TABLE `linklist`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `clientid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `clientid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `linklist`
 --
 ALTER TABLE `linklist`
-  MODIFY `linkid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `linkid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
