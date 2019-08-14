@@ -194,15 +194,16 @@ $clientname = "Admin";
       $clientid = $_SESSION['login_id'];
       $sql = "SELECT * FROM client";
       $result = $conn->query($sql);
-      $bcount = 0;
-      $notified = 0;
+      // $bcount = 0;
+      // $notified = 0;
       if ($result->num_rows > 0) {
 
         echo "<table class='table table-striped'>
 	<thead>
       <tr>
         <th>Client ID</th>
-        <th>Client</th>
+        <th>Client Name</th>
+        <th>Licence Key</th>
         <th>Action</th>
       
       </tr>
@@ -212,6 +213,7 @@ $clientname = "Admin";
           echo "  <tr>";
           echo "<td>" . $row['clientid'] . "</td>";
           echo "<td>" . $row['client'] . "</td>";
+          echo "<td>" . $row['licencekey'] . "</td>";
           echo "<td><a href='#my_modal_del' data-toggle='modal' data-deleteid='$row[clientid]' data-deletename='$row[client]' class='m-2 btn btn-danger btn-md'>
    <span class='glyphicon glyphicon-trash'></span></td>";
           echo "</tr>";

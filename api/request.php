@@ -8,7 +8,13 @@ $days = array("sun", "mon", "tue", "wed", "thu", "fri", "sat");
 $todayday = $days[$dayofweek];
 
 if (isset($_REQUEST['clientid'])) {
-    $clientid = mysqli_real_escape_string($conn, $_GET['clientid']);
+    $licencekey = mysqli_real_escape_string($conn, $_GET['clientid']);
+    $sql = "SELECT clientid FROM client WHERE licencekey= '$licencekey' AND status=1";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $clientid =  $row['clientid'];
+    
+
 
     $sql = "SELECT link, duration FROM linklist WHERE clientid= '$clientid' AND status=1 AND $todayday=1";
 
