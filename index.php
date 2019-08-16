@@ -344,6 +344,7 @@ $clientname = $_SESSION['login_name'];
       <div class="container">
         <br>
         <h2>Available Tabs</h2>
+        <!-- <p align="right">KEY: 9df3b01c60df20d13843841ff0d4482c</p> -->
         <br>
         <!-- <p>The .table-striped class adds zebra-stripes to a table:</p>             -->
         <?php

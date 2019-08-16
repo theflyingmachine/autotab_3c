@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2019 at 03:12 PM
+-- Generation Time: Aug 14, 2019 at 07:06 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -31,7 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `client` (
   `clientid` int(11) NOT NULL,
   `client` varchar(35) NOT NULL,
-  `password` varchar(35) NOT NULL
+  `password` varchar(35) NOT NULL,
+  `licencekey` varchar(32) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -65,7 +67,8 @@ CREATE TABLE `linklist` (
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`clientid`);
+  ADD PRIMARY KEY (`clientid`),
+  ADD UNIQUE KEY `licencekey` (`licencekey`);
 
 --
 -- Indexes for table `linklist`
@@ -81,7 +84,7 @@ ALTER TABLE `linklist`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `clientid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `clientid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `linklist`
