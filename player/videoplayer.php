@@ -49,14 +49,39 @@ body {
   background: #ddd;
   color: black;
 }
+
+div {
+	background: yellow;
+	border: solid 1px red;
+	width: 100%; /* Play with this value */
+	height: 100%;  /* Play with this value */
+	font-size: 0;
+	text-align: center;
+}
+div:before {
+	content: "";
+	width: 1px;
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: -1px;
+}
+div video {
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
 </style>
 </head>
 <body>
-
+<div class="videoWrapper">
 <video autoplay loop muted id="myVideo">
   <source src="myVideoURL" type="video/mp4">
   Your browser does not support HTML5 video.
-</video>
+</video></div>
 <script>
 var video = document.getElementById("myVideo");
 var btn = document.getElementById("myBtn");
@@ -78,5 +103,3 @@ function myFunction() {
 
 $player = str_replace("myVideoURL",$videolink,$player);
 echo $player;
-?>
-
