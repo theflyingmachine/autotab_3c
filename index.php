@@ -425,12 +425,16 @@ $clientname = $_SESSION['login_name'];
         echo " </tbody>
   </table>
 </div>";
+        ?><br><br>
+
+
+        <!-- Get Licence Key -->
+        <?php
+        $sql = "SELECT licencekey FROM client WHERE clientid= '$clientid'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $clientkey = $row['licencekey'];
         ?>
-
-
-
-
-
 
       </div>
 
@@ -624,11 +628,15 @@ $clientname = $_SESSION['login_name'];
                 <div style="text-align: center">
                   <br>
                   <H2>AutoTab 3c</H2>
-                  AutoTab is a platform for creating, managing and deploying digital content in a reliable and user-friendly dashboard that gives users total control over how and where content is played across a network of screens, ensuring relevance to current audiences.
+                  AutoTab is a platform for creating, managing and deploying digital content in a reliable and user-friendly dashboard that gives users total control over how and where content is played across a network of screens.
+                  <br><br>
+                  <strong>Version: 2.0.10</strong>
                   <br>
-                  Version: 2.0.10
-                  <br>
+                  <?php echo "License Key:<strong> " . $clientkey . "</strong>" ?>
 
+                  <br><br>
+                  <i>Feedback and bug reporting: <a href="mailto:eric.kalloor@cerner.com">eric.kalloor@cerner.com</a> <i>
+                      <br>
                 </div>
                 <br>
                 <!-- Duration: <input type="text" name="duration"> -->
