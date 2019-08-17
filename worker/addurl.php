@@ -125,14 +125,16 @@ if (!empty($_REQUEST['url'])) {
         header("location: ../index.php");
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        $randname = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 12)), 0, 12);
+        $finalfilename =  $target_dir . $randname . "." . $imageFileType;
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $finalfilename)) {
             echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
 
             //Manage Player based on file type
             if ($imageFileType == "mp4") {
-                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
+                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . $finalfilename;
             } else
-                echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . basename($_FILES["fileToUpload"]["name"]);
+                echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . $finalfilename;
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
             if ($expdate) {
