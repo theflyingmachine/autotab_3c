@@ -129,6 +129,30 @@ if (!empty($_REQUEST['url'])) {
         $finalfilename =  $target_dir . $randname . "." . $imageFileType;
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $finalfilename)) {
             echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+            //Convert Vieo TO MP4
+            if (
+                $imageFileType == "avi" ||
+                $imageFileType == "mkv"
+                ) {
+                    $folder = '../upload/';
+                    $filename = $randname . "." . $imageFileType;
+                    $newFilename = pathinfo($filename, PATHINFO_FILENAME).'.mp4';
+                    
+                    exec('/usr/bin/ffmpeg -y -i '.$folder.DIRECTORY_SEPARATOR.$filename.' -c:v libx264 -c:a aac -pix_fmt yuv420p -movflags faststart -hide_banner '.$folder.DIRECTORY_SEPARATOR.$newFilename.' 2>&1', $out, $res);
+                    
+                    if($res != 0) {
+                        error_log(var_export($out, true));
+                        error_log(var_export($res, true));
+                        $_SESSION['errormessage'] = 'Sorry, your file was not converted to MP4!!';
+                        throw new \Exception("Error!");
+                        $uploadOk = 0;
+                        header("location: ../index.php");
+                    }else{
+                    $imageFileType = "mp4";
+                    $finalfilename =  $target_dir . $randname . "." . $imageFileType;
+                    }
+            }
+
 
             //Manage Player based on file type
             if ($imageFileType == "mp4") {
