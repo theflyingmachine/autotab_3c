@@ -134,24 +134,28 @@ if (!empty($_REQUEST['url'])) {
             if (
                 $imageFileType == "avi" ||
                 $imageFileType == "mkv"
-                ) {
-                    $folder = '../upload/';
-                    $filename = $randname . "." . $imageFileType;
-                    $newFilename = pathinfo($filename, PATHINFO_FILENAME).'.mp4';
-                    
-                    exec('/usr/bin/ffmpeg -y -i '.$folder.DIRECTORY_SEPARATOR.$filename.' -hide_banner '.$folder.DIRECTORY_SEPARATOR.$newFilename.' 2>&1');
-                    
-                    if($res != 0) {
-                        error_log(var_export($out, true));
-                        error_log(var_export($res, true));
-                        $_SESSION['errormessage'] = 'Sorry, your file was not converted to MP4!!';
-                        throw new \Exception("Error!");
-                        $uploadOk = 0;
-                        header("location: ../index.php");
-                    }else{
+            ) {
+                $folder = '../upload/';
+                $filename = $randname . "." . $imageFileType;
+                $newFilename = pathinfo($filename, PATHINFO_FILENAME) . '.mp4';
+
+                exec('/usr/bin/ffmpeg -y -i ' . $folder . DIRECTORY_SEPARATOR . $filename . ' -hide_banner ' . $folder . DIRECTORY_SEPARATOR . $newFilename . ' 2>&1');
+
+                if ($res != 0) {
+                    error_log(var_export($out, true));
+                    error_log(var_export($res, true));
+                    $_SESSION['errormessage'] = 'Sorry, your file was not converted to MP4!!';
+                    throw new \Exception("Error!");
+                    $uploadOk = 0;
+                    header("location: ../index.php");
+                } else {
+                    // Delete old file with other video extension
+                    echo $path =  'upload/' . DIRECTORY_SEPARATOR . $filename;
+                    chdir("..");
+                    unlink($path);
                     $imageFileType = "mp4";
                     $finalfilename =  $target_dir . $randname . "." . $imageFileType;
-                    }
+                }
             }
 
 
