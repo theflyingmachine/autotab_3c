@@ -451,77 +451,84 @@ $clientname = $_SESSION['login_name'];
               <h4 class="modal-title">Add New Tab</h4>
             </div>
             <div class="modal-body">
-              <form action=worker/addurl.php method="POST" enctype="multipart/form-data">
-                <label>Tab URL </label>
-                <input class="form-control form-control-lg" type="text" name="url" placeholder="Enter URL">
-                <h3 align="center">or</h3>
-                <div class="form-group files">
-                  <label>Upload Your File </label>
-                  <input type="file" class="form-control" name="fileToUpload">
-                </div>
+              <div id="loading" style="display:none"><br>
+                <img style='height: 100%; width: 100%; object-fit: contain' class="center" src="https://cdn.dribbble.com/users/119313/screenshots/1675522/machine1_2.gif" />
+                <br><br><br>
+                <h4 align="center">Please wait while we upload and process your file...</h4><br>
+              </div>
+              <div id="addnewform">
+                <form action=worker/addurl.php method="POST" enctype="multipart/form-data" onsubmit="$('#loading').show(); $('#addnewform').hide();">
+                  <label>Tab URL </label>
+                  <input class="form-control form-control-lg" type="text" name="url" placeholder="Enter URL">
+                  <h3 align="center">or</h3>
+                  <div class="form-group files">
+                    <label>Upload Your File </label>
+                    <input type="file" class="form-control" name="fileToUpload">
+                  </div>
+                  <label>Week Days </label>
+                  <div class="weekDays-selector">
+                    <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked />
+                    <label for="weekday-mon">Mon</label>
+                    <input type="checkbox" id="weekday-tue" name="tue" class="weekday" value="1" checked />
+                    <label for="weekday-tue">Tue</label>
+                    <input type="checkbox" id="weekday-wed" name="wed" class="weekday" value="1" checked />
+                    <label for="weekday-wed">Wed</label>
+                    <input type="checkbox" id="weekday-thu" name="thu" class="weekday" value="1" checked />
+                    <label for="weekday-thu">Thu</label>
+                    <input type="checkbox" id="weekday-fri" name="fri" class="weekday" value="1" checked />
+                    <label for="weekday-fri">Fri</label>
+                    <input type="checkbox" id="weekday-sat" name="sat" class="weekday" value="1" checked />
+                    <label for="weekday-sat">Sat</label>
+                    <input type="checkbox" id="weekday-sun" name="sun" class="weekday" value="1" checked />
+                    <label for="weekday-sun">Sun</label>
+                  </div><br>
+                  <label>Date and Time Range </label>
+                  <!-- <input type="checkbox" checked data-toggle="toggle" data-size="xs"> -->
+                  <label class="switch">
+                    <input type="checkbox" name="expdate" id="myCheck" onclick="myFunction()" value="true">
+                    <span class="slider round"></span>
+                  </label>
+                  <input style="display:none" class="form-control form-control-lg" id="rangepicker" type="text" name="datetimes" />
 
-                <label>Week Days </label>
-                <div class="weekDays-selector">
-                  <input type="checkbox" id="weekday-mon" name="mon" class="weekday" value="1" checked />
-                  <label for="weekday-mon">Mon</label>
-                  <input type="checkbox" id="weekday-tue" name="tue" class="weekday" value="1" checked />
-                  <label for="weekday-tue">Tue</label>
-                  <input type="checkbox" id="weekday-wed" name="wed" class="weekday" value="1" checked />
-                  <label for="weekday-wed">Wed</label>
-                  <input type="checkbox" id="weekday-thu" name="thu" class="weekday" value="1" checked />
-                  <label for="weekday-thu">Thu</label>
-                  <input type="checkbox" id="weekday-fri" name="fri" class="weekday" value="1" checked />
-                  <label for="weekday-fri">Fri</label>
-                  <input type="checkbox" id="weekday-sat" name="sat" class="weekday" value="1" checked />
-                  <label for="weekday-sat">Sat</label>
-                  <input type="checkbox" id="weekday-sun" name="sun" class="weekday" value="1" checked />
-                  <label for="weekday-sun">Sun</label>
-                </div><br>
-                <label>Date and Time Range </label>
-                <!-- <input type="checkbox" checked data-toggle="toggle" data-size="xs"> -->
-                <label class="switch">
-                  <input type="checkbox" name="expdate" id="myCheck" onclick="myFunction()" value="true">
-                  <span class="slider round"></span>
-                </label>
-                <input style="display:none" class="form-control form-control-lg" id="rangepicker" type="text" name="datetimes" />
-
-                <script>
-                  function myFunction() {
-                    var checkBox = document.getElementById("myCheck");
-                    var div = document.getElementById("rangepicker");
-                    if (checkBox.checked == true) {
-                      div.style.display = "block";
-                    } else {
-                      div.style.display = "none";
-                    }
-                  }
-                </script>
-                <script>
-                  $(function() {
-                    $('input[name="datetimes"]').daterangepicker({
-                      timePicker: true,
-                      startDate: moment().startOf('minute'),
-                      minDate: moment().startOf('minute').add(2, 'minute'),
-                      endDate: moment().startOf('hour').add(32, 'hour'),
-                      orientation: "auto",
-                      opens: "center",
-                      drops: "up",
-                      locale: {
-                        format: 'DD/MM/YYYY hh:mm A'
+                  <script>
+                    function myFunction() {
+                      var checkBox = document.getElementById("myCheck");
+                      var div = document.getElementById("rangepicker");
+                      if (checkBox.checked == true) {
+                        div.style.display = "block";
+                      } else {
+                        div.style.display = "none";
                       }
+                    }
+                  </script>
+                  <script>
+                    $(function() {
+                      $('input[name="datetimes"]').daterangepicker({
+                        timePicker: true,
+                        startDate: moment().startOf('minute'),
+                        minDate: moment().startOf('minute').add(2, 'minute'),
+                        endDate: moment().startOf('hour').add(32, 'hour'),
+                        orientation: "auto",
+                        opens: "center",
+                        drops: "up",
+                        locale: {
+                          format: 'DD/MM/YYYY hh:mm A'
+                        }
+                      });
                     });
-                  });
-                </script><br>
-                <label>Duration </label>
-                <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
-                <!-- URL:  <input type="text" name="url"> -->
-                <br>
-                <!-- Duration: <input type="text" name="duration"> -->
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-default">Add</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
+                  </script><br>
+                  <label>Duration </label>
+                  <input class="form-control form-control-lg" type="text" name="duration" placeholder="Enter Duration in seconds">
+                  <!-- URL:  <input type="text" name="url"> -->
+                  <br>
+                  <!-- Duration: <input type="text" name="duration"> -->
+
+                  <div class="modal-footer">
+                  </div>
+                  <button type="submit" class="btn btn-default">Add</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
