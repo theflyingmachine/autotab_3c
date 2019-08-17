@@ -1,6 +1,6 @@
 <?php
 session_start();
-ini_set('max_execution_time', 300); // 300 (seconds) = 5 Minutes
+ini_set('max_execution_time', 600); // 600 (seconds) = 10 Minutes
 if (!($_SESSION['login'])) {
     header('Location: login.php');
 }
