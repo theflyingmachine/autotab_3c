@@ -106,12 +106,15 @@ if (!empty($_REQUEST['url'])) {
     }
     // Allow certain file formats
     if (
+        $imageFileType != "avi" &&
+        $imageFileType != "flv" &&
+        $imageFileType != "wmv" &&
+        $imageFileType != "mov" &&
+        $imageFileType != "mkv" &&
+        $imageFileType != "mp4" &&
         $imageFileType != "jpg" &&
         $imageFileType != "png" &&
-        $imageFileType != "avi" &&
-        $imageFileType != "mp4" &&
         $imageFileType != "pdf" &&
-        $imageFileType != "mkv" &&
         $imageFileType != "gif"
     ) {
         $_SESSION['errormessage'] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed!!';
@@ -133,6 +136,9 @@ if (!empty($_REQUEST['url'])) {
             //Convert Vieo TO MP4
             if (
                 $imageFileType == "avi" ||
+                $imageFileType == "flv" ||
+                $imageFileType == "wmv" ||
+                $imageFileType == "mov" ||
                 $imageFileType == "mkv"
             ) {
                 $folder = '../upload/';
