@@ -1,5 +1,6 @@
 <?php
 session_start();
+ini_set('max_execution_time', 300); // 300 (seconds) = 5 Minutes
 if (!($_SESSION['login'])) {
     header('Location: login.php');
 }
@@ -138,7 +139,7 @@ if (!empty($_REQUEST['url'])) {
                     $filename = $randname . "." . $imageFileType;
                     $newFilename = pathinfo($filename, PATHINFO_FILENAME).'.mp4';
                     
-                    exec('/usr/bin/ffmpeg -y -i '.$folder.DIRECTORY_SEPARATOR.$filename.' -c:v libx264 -c:a aac -pix_fmt yuv420p -movflags faststart -hide_banner '.$folder.DIRECTORY_SEPARATOR.$newFilename.' 2>&1', $out, $res);
+                    exec('/usr/bin/ffmpeg -y -i '.$folder.DIRECTORY_SEPARATOR.$filename.' -hide_banner '.$folder.DIRECTORY_SEPARATOR.$newFilename.' 2>&1');
                     
                     if($res != 0) {
                         error_log(var_export($out, true));
