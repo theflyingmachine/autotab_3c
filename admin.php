@@ -21,6 +21,10 @@ $clientname = "Admin";
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
     .white {
@@ -102,13 +106,38 @@ $clientname = "Admin";
       background-color: #333;
     }
 
+    .topnav {
+      overflow: hidden;
+      /* background-color: #333;4CAF50 */
+      background-color: #4CAF50;
+      width: 100%;
+      height: 90px;
+      min-height: 80px;
+    }
+
     .topnav a {
       float: left;
       color: #f2f2f2;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
+      font-size: 20px;
+    }
+
+    .navnav a {
+      font-size: 20px;
+      padding-top: 28.5px;
+      padding-bottom: 100%;
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+
+    .navbrand a {
       font-size: 17px;
+      padding-left: 45px;
+      padding-right: 45px;
+      padding-top: 5px;
+
     }
 
     .topnav a:hover {
@@ -123,6 +152,30 @@ $clientname = "Admin";
 
     .topnav-right {
       float: right;
+    }
+
+    @font-face {
+      font-family: fontastique;
+      src: url(img/fontastique.ttf);
+    }
+
+    .intro {
+      font-family: fontastique;
+      font-size: 40px;
+    }
+
+    .poweredby {
+      font-size: 15px;
+    }
+
+    #footer {
+      height: 50px;
+      /* Height of the footer */
+      /* background: #6cf; */
+      background: #2196F3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 
@@ -149,14 +202,20 @@ $clientname = "Admin";
   </ul>
 </nav> -->
   <div class="topnav">
-    <a class="active" href="#home">AutoTab 3C - <?php echo $clientname ?></a>
-    <a href="#" data-toggle="modal" data-target="#myModal">Add Client</a>
-    <a href="http://corpansimstr00/autotab_3c/autoTab.zip">Download Client</a>
-    <a href="#" data-toggle="modal" data-target="#myaboutModal">About</a>
-    <!-- <a href="#contact">Contact</a> -->
-    <div class="topnav-right">
-      <!-- <a href="#search">Search</a> -->
-      <a href="logout.php">Logout</a>
+    <div class="navbrand">
+      <a class="active" href="#home"> <strong class="intro">AutoTab</strong><sub>(Beta)</sub><br>
+        <div class="poweredby">POWERED BY SSE</div>
+      </a>
+    </div>
+    <div class="navnav">
+      <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Tab</a>
+      <a href="http://corpansimstr00/autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
+      <a href="#" data-toggle="modal" data-target="#myaboutModal"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
+      <!-- <a href="#contact">Contact</a> -->
+      <div class="topnav-right">
+        <!-- <a href="#search">Search</a> -->
+        <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout - <?php echo $clientname ?></a>
+      </div>
     </div>
   </div>
 
@@ -340,7 +399,11 @@ $clientname = "Admin";
         $(e.currentTarget).find('input[name="deletename"]').val(deletename);
       });
     </script>
-
+    <!-- Footer #####################################################################-->
+    <footer id="footer" class="fixed-bottom text-white-50">
+      <!-- <footer id="footer" class="bg-dark text-white-50"> -->
+      <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</small> AutoTab &nbsp;<sub>(Beta)</sub> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;POWERED BY SSE
+    </footer>
 
 </body>
 

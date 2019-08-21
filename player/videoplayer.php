@@ -1,7 +1,7 @@
 <?php
-$videolink=$_GET['videolink'];
+$videolink = $_GET['videolink'];
 
-$player='
+$player = '
 
 <!DOCTYPE html>
 <html>
@@ -101,5 +101,5 @@ function myFunction() {
 </html>';
 
 
-$player = str_replace("myVideoURL",$videolink,$player);
+$player = str_replace("myVideoURL", $videolink, $player);
 echo $player;

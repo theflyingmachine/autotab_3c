@@ -13,7 +13,7 @@ if (isset($_REQUEST['clientid'])) {
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $clientid =  $row['clientid'];
-    
+
 
 
     $sql = "SELECT link, duration FROM linklist WHERE clientid= '$clientid' AND status=1 AND $todayday=1";
