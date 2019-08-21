@@ -549,7 +549,7 @@ $clientname = $_SESSION['login_name'];
             <div class="modal-body">
               <form action=worker/edittab.php method="POST">
                 <label>Tab </label>
-                <input class="form-control form-control-lg" type="text" disabled name="elink" placeholder="Enter Duration in Seconds" value="" />
+                <input class="form-control form-control-lg" type="text" name="elink" placeholder="Enter Duration in Seconds" value="" />
                 <br>
                 <label>Week Days </label>
                 <div class="weekDays-selector">

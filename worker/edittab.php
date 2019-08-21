@@ -26,9 +26,10 @@ include("../config/config.php");
 if (isset($_REQUEST['editduration'])) {
     $editduration = 1000 * mysqli_real_escape_string($conn, $_POST['editduration']);
     $editlink = mysqli_real_escape_string($conn, $_POST['editlink']);
+    $elink = mysqli_real_escape_string($conn, $_POST['elink']);
     $login_id = $_SESSION['login_id'];
 
-    $sql = "UPDATE linklist SET mon=$mon, tue=$tue, wed=$wed, thu=$thu, fri=$fri, sat=$sat, sun=$sun, duration = '$editduration' WHERE linkid='$editlink' AND clientid='$login_id'";
+    $sql = "UPDATE linklist SET mon=$mon, tue=$tue, wed=$wed, thu=$thu, fri=$fri, sat=$sat, sun=$sun, duration = '$editduration', link='$elink' WHERE linkid='$editlink' AND clientid='$login_id'";
     // echo $sql;
     // exit;
     $result = $conn->query($sql);
