@@ -97,7 +97,7 @@ if (!empty($_REQUEST['url'])) {
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 100000000) {
+    if ($_FILES["fileToUpload"]["size"] > 500000000) {
         // echo "Sorry, your file is too large.";
         $_SESSION['errormessage'] = 'Sorry, your file is too large!!';
         header("location: ../index.php");
