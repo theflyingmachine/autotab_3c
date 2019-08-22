@@ -133,8 +133,8 @@ $clientname = $_SESSION['login_name'];
       font-size: 20px;
       padding-top: 28.5px;
       padding-bottom: 100%;
-      padding-left: 35px;
-      padding-right: 35px;
+      padding-left: 25px;
+      padding-right: 25px;
     }
 
     .navbrand a {
