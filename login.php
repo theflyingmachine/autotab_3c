@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       max-width: 280px;
       padding: 5px;
       margin: 0 auto;
-      margin-top: 25%;
+      margin-top: 20%;
     }
 
     .form-signin .form-signin-heading,
@@ -148,6 +148,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-align: center;
       text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
     }
+
+    @font-face {
+      font-family: fontastique;
+      src: url(img/fontastique.ttf);
+    }
+
+    .intro {
+      font-family: fontastique;
+      font-size: 70px;
+      
+    }
+
+    .poweredby {
+      font-size: 15px;
+    }
+
+    .logintext {
+      color: white;
+      text-align: center;
+    }
   </style>
   <!------ Include the above in your HEAD tag ---------->
 </head>
@@ -157,7 +177,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
 
   <form class="form-signin" method="post" action="">
-    <h1 class="form-signin-heading text-muted">AutoTab 3C</h1>
+  <div class="logintext" />
+    <strong class="intro">AutoTab</strong><sub>(Beta)</sub>
+    <div class="poweredby">POWERED BY SSE</div>
+  </div><br><br>
     <h4 class="form-signin-heading text-muted">Control & Command Center</h4>
     <br>
     <input type="text" class="form-control" name="client" placeholder="Client ID" required="" autofocus="">
