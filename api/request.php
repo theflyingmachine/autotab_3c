@@ -48,6 +48,6 @@ if (isset($_REQUEST['clientid'])) {
     }
 
     // Update connceted device heartbeat
-    $sql = "INSERT INTO devices (devicename,lastseen)VALUES ('$hostname',now())ON DUPLICATE KEY UPDATE lastseen=now()";
+    $sql = "INSERT INTO devices (clientid,devicename,lastseen)VALUES ('$clientid','$hostname',now())ON DUPLICATE KEY UPDATE clientid=$clientid, lastseen=now()";
     $result = $conn->query($sql);
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2019 at 07:06 PM
+-- Generation Time: Aug 22, 2019 at 05:45 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -34,6 +34,19 @@ CREATE TABLE `client` (
   `password` varchar(35) NOT NULL,
   `licencekey` varchar(32) NOT NULL,
   `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `devices`
+--
+
+CREATE TABLE `devices` (
+  `deviceid` int(4) NOT NULL,
+  `clientid` int(4) NOT NULL,
+  `devicename` varchar(25) NOT NULL,
+  `lastseen` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -71,6 +84,13 @@ ALTER TABLE `client`
   ADD UNIQUE KEY `licencekey` (`licencekey`);
 
 --
+-- Indexes for table `devices`
+--
+ALTER TABLE `devices`
+  ADD PRIMARY KEY (`deviceid`),
+  ADD UNIQUE KEY `devicename` (`devicename`);
+
+--
 -- Indexes for table `linklist`
 --
 ALTER TABLE `linklist`
@@ -87,10 +107,16 @@ ALTER TABLE `client`
   MODIFY `clientid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `devices`
+--
+ALTER TABLE `devices`
+  MODIFY `deviceid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT for table `linklist`
 --
 ALTER TABLE `linklist`
-  MODIFY `linkid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `linkid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
