@@ -9,6 +9,11 @@ $todayday = $days[$dayofweek];
 
 if (isset($_REQUEST['clientid'])) {
     $licencekey = mysqli_real_escape_string($conn, $_GET['clientid']);
+    if (isset($_REQUEST['hostname'])) {
+        $hostname = mysqli_real_escape_string($conn, $_GET['hostname']);
+    } else {
+        $hostname = "UnkownDevice";
+    }
     $sql = "SELECT clientid FROM client WHERE licencekey= '$licencekey' AND status=1";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -41,4 +46,8 @@ if (isset($_REQUEST['clientid'])) {
             }
         }
     }
+
+    // Update connceted device heartbeat
+    $sql = "INSERT INTO devices (devicename,lastseen)VALUES ('$hostname',now())ON DUPLICATE KEY UPDATE lastseen=now()";
+    $result = $conn->query($sql);
 }
