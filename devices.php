@@ -389,7 +389,7 @@ $clientname = $_SESSION['login_name'];
                 include("config/config.php");
                 $clientid = $_SESSION['login_id'];
                 // Count total loop duration;
-                $sql = "SELECT SUM(duration) FROM linklist WHERE clientid=$clientid";
+                $sql = "SELECT SUM(duration) FROM linklist WHERE clientid=$clientid AND status=1";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
 
