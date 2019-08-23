@@ -21,4 +21,4 @@ if (isset($_REQUEST['deleteid'])) {
     }
 } else
     $_SESSION['errormessage'] = 'Oops, Something went worng..!!';
-header("location: ../index.php");
+header("location: ../admin.php");
