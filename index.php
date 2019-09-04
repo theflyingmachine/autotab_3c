@@ -348,7 +348,7 @@ $clientname = $_SESSION['login_name'];
       <div class="navnav">
         <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Tab</a>
         <a href="devices.php"><i class="fa fa-television" aria-hidden="true"></i> Devices</a>
-        <a href="http://<?php echo gethostname()?>/autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
+        <a href="../autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
         <a href="#" data-toggle="modal" data-target="#mypassModal"><i class="fa fa-cogs" aria-hidden="true"></i> Change Password</a>
         <a href="#" data-toggle="modal" data-target="#myaboutModal"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
         <!-- <a href="#contact">Contact</a> -->
