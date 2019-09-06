@@ -181,29 +181,7 @@ $clientname = "Admin";
   background: linear-gradient(to right, #0062E6, #33AEFF);
 } */
 
-        .weekDays-selector input {
-            display: none !important;
-        }
-
-        .weekDays-selector input[type=checkbox]+label {
-            display: inline-block;
-            border-radius: 16px;
-            background: #dddddd;
-            height: 40px;
-            width: 30px;
-            /* margin-right: 3px; */
-
-            line-height: 40px;
-            /* text-align: center; */
-            cursor: pointer;
-            padding-right: 45px;
-            padding-left: 18px;
-        }
-
-        .weekDays-selector input[type=checkbox]:checked+label {
-            background: #2AD705;
-            color: #ffffff;
-        }
+       
 
         .success {
             background-color: #4CAF50;
@@ -241,82 +219,7 @@ $clientname = "Admin";
             justify-content: center;
         }
 
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 24px;
-        }
-
-
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-
-
-        input:checked+.slider {
-            background-color: #2196F3;
-        }
-
-
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(16px);
-            -ms-transform: translateX(16px);
-            transform: translateX(16px);
-        }
-
-
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
+     
         @font-face {
             font-family: fontastique;
             src: url(img/fontastique.ttf);
@@ -332,8 +235,15 @@ $clientname = "Admin";
         }
 
         hr {
-            border-top: 5px dashed red;
+            border-top: 3px dashed #2196F3;
         }
+
+        hr.statsblue {
+            border-top: 3px dashed #2196F3;
+        }
+
+
+        
     </style>
 
 
@@ -397,6 +307,63 @@ $clientname = "Admin";
                 $totaloffline = 0;
                 include("config/config.php");
 
+                // Minified query to get the stats
+
+                $sql = "SELECT * FROM client WHERE status = 1";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0)
+                while ($row = $result->fetch_assoc()) {
+                    $clientid = $row['clientid'];
+                    $sql = "SELECT SUM(duration) FROM linklist WHERE clientid=$clientid AND status=1";
+                    $result1 = $conn->query($sql);
+                    $row1 = $result1->fetch_assoc();
+                    $totaldutaion = ($row1['SUM(duration)'] / 1000);
+                    $totaldutaion = (int) $totaldutaion + 120;
+                    $sql = "SELECT * FROM devices WHERE clientid=$clientid AND lastseen >= NOW() - INTERVAL $totaldutaion SECOND";
+                    $result2 = $conn->query($sql);
+                    if ($result2->num_rows > 0) 
+                         while ($row2 = $result2->fetch_assoc()) {
+                            $totalonline++;
+                        }
+                        $sql = "SELECT * FROM devices WHERE clientid=$clientid AND lastseen <= NOW() - INTERVAL $totaldutaion SECOND";
+                        $result3 = $conn->query($sql);
+                        if ($result3->num_rows > 0) 
+                            while ($row3 = $result3->fetch_assoc()) {
+                                $totaloffline++;
+                            }
+                        }
+?>
+                        <H2> <strong>Statistics </strong></h2>
+                        <?php
+                        $totaldevices = $totalonline + $totaloffline;
+                        $onlinepercentage = $totalonline / $totaldevices * 100;
+                        $offlinepercentage = $totaloffline / $totaldevices * 100;
+        
+                        ?>
+                        <h3>Online: <?php echo   $totalonline ?>
+                            <div class="w3-light-grey w3-xlarge">
+                                <div class="w3-container w3-xlarge w3-green w3-center" style="height:30px;width:<?php echo $onlinepercentage ?>%"><?php echo round($onlinepercentage) . "%" ?></div>
+                            </div><br>
+                            <br>Offline: <?php echo $totaloffline ?>
+                            <div class="w3-light-grey w3-xlarge">
+                                <div class="w3-container w3-xlarge w3-red w3-center" style="height:30px;width:<?php echo $offlinepercentage ?>%"><?php echo round($offlinepercentage) . "%" ?></div>
+                            </div><br>
+                            <br>Total Devices: <?php echo  $totaldevices ?>
+        
+                        </h3>
+                        <br><br><hr class=statsblue>
+
+
+
+
+
+
+
+
+
+
+<?php
+
                 //Select ALL Clients 
                 $sql = "SELECT * FROM client WHERE status = 1";
                 $result = $conn->query($sql);
@@ -428,17 +395,17 @@ $clientname = "Admin";
                     $totaldutaion = (int) $totaldutaion + 120;
                     //Show online devices
                     $sql = "SELECT * FROM devices WHERE clientid=$clientid AND lastseen >= NOW() - INTERVAL $totaldutaion SECOND";
-                    $result1 = $conn->query($sql);
-                    if ($result1->num_rows > 0) {
+                    $result2 = $conn->query($sql);
+                    if ($result2->num_rows > 0) {
 
-                        echo "<h4>Online Devices: " . $result1->num_rows . "</h4>";
-                        while ($row1 = $result1->fetch_assoc()) {
+                        echo "<h4>Online Devices: " . $result2->num_rows . "</h4>";
+                        while ($row2 = $result2->fetch_assoc()) {
 
                             echo '<span class="fa-stack fa-3x" style="color:#00FF00">
             <i class="fa fa-television fa-stack-1x"></i>
               <span class="fa fa-stack-1x" style="color:green;">
                   <span style="font-size:15px; margin-top:30px; display:block;">
-                  ' . $row1['devicename'] . '
+                  ' . $row2['devicename'] . '
                   </span>
             </span>
         </span>';
@@ -450,16 +417,16 @@ $clientname = "Admin";
 
                     //Show Offline devices
                     $sql = "SELECT * FROM devices WHERE clientid=$clientid AND lastseen <= NOW() - INTERVAL $totaldutaion SECOND";
-                    $result1 = $conn->query($sql);
-                    if ($result1->num_rows > 0) {
+                    $result3 = $conn->query($sql);
+                    if ($result3->num_rows > 0) {
 
-                        echo "<br><h4>Offline Devices: " . $result1->num_rows . "</h4>";
-                        while ($row1 = $result1->fetch_assoc()) {
+                        echo "<br><h4>Offline Devices: " . $result3->num_rows . "</h4>";
+                        while ($row3 = $result3->fetch_assoc()) {
                             echo '<span class="fa-stack fa-3x" style="color:orange">
             <i class="fa fa-television fa-stack-1x"></i>
               <span class="fa fa-stack-1x" style="color:orange;">
                   <span style="font-size:15px; margin-top:30px; display:block;">
-                  ' . $row1['devicename'] . '
+                  ' . $row3['devicename'] . '
                   </span>
             </span>
         </span>';
@@ -475,29 +442,6 @@ $clientname = "Admin";
 
 
             ?><br><br>
-
-                <H2> Statistics </h2>
-                <?php
-                $totaldevices = $totalonline + $totaloffline;
-                $onlinepercentage = $totalonline / $totaldevices * 100;
-                $offlinepercentage = $totaloffline / $totaldevices * 100;
-
-                ?>
-                <h3>Online: <?php echo   $totalonline ?>
-                    <div class="w3-light-grey w3-xlarge">
-                        <div class="w3-container w3-xlarge w3-green w3-center" style="height:30px;width:<?php echo $onlinepercentage ?>%"><?php echo round($onlinepercentage) . "%" ?></div>
-                    </div><br>
-                    <br>Offline: <?php echo $totaloffline ?>
-                    <div class="w3-light-grey w3-xlarge">
-                        <div class="w3-container w3-xlarge w3-red w3-center" style="height:30px;width:<?php echo $offlinepercentage ?>%"><?php echo round($offlinepercentage) . "%" ?></div>
-                    </div><br>
-                    <br>Total Devices: <?php echo  $totaldevices ?>
-
-                </h3>
-                <br><br><br><br>
-            </div>
-
-
 
             <!-- Add new Client Modal ########################## -->
             <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->

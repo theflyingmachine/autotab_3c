@@ -246,7 +246,7 @@ $clientname = "Admin";
 
     <div class="container">
       <br>
-      <h2>Available Tabs</h2>
+      <h2> <strong>All Clients </strong></h2>
       <br>
       <!-- <p>The .table-striped class adds zebra-stripes to a table:</p>             -->
       <?php
