@@ -209,6 +209,7 @@ $clientname = "Admin";
     </div>
     <div class="navnav">
       <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Client</a>
+      <a href="alldevices.php"><i class="fa fa-television" aria-hidden="true"></i> View All Devices</a>
       <a href="../autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
       <a href="#" data-toggle="modal" data-target="#myaboutModal"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
       <!-- <a href="#contact">Contact</a> -->
@@ -295,7 +296,7 @@ $clientname = "Admin";
 
 
 
-
+ <!-- Add new Client Modal ########################## -->
     <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
     <div class="modal fade" id="myModal" role="dialog">
