@@ -48,9 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
   <title>AutoTab 3C</title>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="icon" href="img/favicon.ico" type="image/png">
+  <link href="asset/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="asset/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="asset/jquery-1.11.1.min.js"></script>
   <style>
     body {
       padding-top: 120px;
@@ -90,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       left: 0;
       background-size: cover;
       background-position: 50% 50%;
-      background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');
+      background-image: url('asset/color-splash.jpg');
       background-repeat: repeat;
     }
 
@@ -144,7 +145,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     .form-signin-heading {
-      color: #fff;
+      color: #FFFFFF !important;
+      font-size: 18px;
       text-align: center;
       text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
     }

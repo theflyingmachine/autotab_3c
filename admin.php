@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!($_SESSION['login'])) {
+if (!($_SESSION['login_id'] == "admin")) {
   header('Location: login.php');
 }
 $clientname = "Admin";

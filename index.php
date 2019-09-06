@@ -4,7 +4,11 @@ if (!($_SESSION['login'])) {
   header('Location: login.php');
 }
 $clientname = $_SESSION['login_name'];
+if (($_SESSION['login_id'] == "admin")) {
+  header('Location: login.php');
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
