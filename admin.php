@@ -296,7 +296,7 @@ $clientname = "Admin";
 
 
 
- <!-- Add new Client Modal ########################## -->
+    <!-- Add new Client Modal ########################## -->
     <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
     <div class="modal fade" id="myModal" role="dialog">

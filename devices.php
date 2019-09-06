@@ -36,7 +36,7 @@ if (($_SESSION['login_id'] == "admin"))
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+    <link rel="stylesheet" href="asset/w3.css">
 
     <style>
         .white {
@@ -331,6 +331,10 @@ if (($_SESSION['login_id'] == "admin"))
         .poweredby {
             font-size: 15px;
         }
+
+        hr {
+            border-top: 3px dashed #2196F3;
+        }
     </style>
 
 
@@ -350,7 +354,7 @@ if (($_SESSION['login_id'] == "admin"))
             <div class="navnav">
                 <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Tab</a>
                 <a href="index.php"><i class="fa fa-television" aria-hidden="true"></i> Tabs</a>
-                <a href="http://<?php echo gethostname()?>/autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
+                <a href="http://<?php echo gethostname() ?>/autotab_3c/autoTab.zip"><i class="fa fa-download" aria-hidden="true"></i> Download Client</a>
                 <a href="#" data-toggle="modal" data-target="#mypassModal"><i class="fa fa-cogs" aria-hidden="true"></i> Change Password</a>
                 <a href="#" data-toggle="modal" data-target="#myaboutModal"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
                 <!-- <a href="#contact">Contact</a> -->
@@ -388,6 +392,8 @@ if (($_SESSION['login_id'] == "admin"))
             <div class="container">
                 <br>
                 <?php
+                $totalonline = 0;
+                $totaloffline = 0;
                 include("config/config.php");
                 $clientid = $_SESSION['login_id'];
                 // Count total loop duration;
@@ -396,7 +402,8 @@ if (($_SESSION['login_id'] == "admin"))
                 $row = $result->fetch_assoc();
 
                 ?>
-                <h2>Devices <span style="float:right;">
+
+                <h2><strong>Devices </strong> <span style="float:right;">
                         <?php echo "Loop Duration: " . $totaldutaion = ($row['SUM(duration)'] / 1000) . " Sec"; ?>
                     </span></h2>
                 <!-- <p align="right">KEY: 9df3b01c60df20d13843841ff0d4482c</p> -->
@@ -414,10 +421,10 @@ if (($_SESSION['login_id'] == "admin"))
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
 
-                    echo "<h3>Online Devices: </h3>";
+                    echo "<h3>Online Devices:  " . $result->num_rows . "</h3>";
                     while ($row = $result->fetch_assoc()) {
 
-                        echo '<span class="fa-stack fa-3x">
+                        echo '<span class="fa-stack fa-3x" style="color:green">
             <i class="fa fa-television fa-stack-2x"></i>
               <span class="fa fa-stack-1x" style="color:green;">
                   <span style="font-size:15px; margin-top:-12px; display:block;">
@@ -425,9 +432,10 @@ if (($_SESSION['login_id'] == "admin"))
                   </span>
             </span>
         </span>	&nbsp;&nbsp;';
+                        $totalonline++;
                     }
                 } else {
-                    echo "<p>No Device conected to your AutoTab. Let's start by adding devices.</p>";
+                    echo "<p>No Device online at this point of time.</p>";
                 }
 
                 //Show Offline devices
@@ -435,10 +443,10 @@ if (($_SESSION['login_id'] == "admin"))
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
 
-                    echo "<br><br><br><h3>Offline Devices: </h3>";
+                    echo "<br><br><br><h3>Offline Devices: " . $result->num_rows . "</h3>";
                     while ($row = $result->fetch_assoc()) {
 
-                        echo '<span class="fa-stack fa-3x">
+                        echo '<span class="fa-stack fa-3x" style="color:orange" >
             <i class="fa fa-television fa-stack-2x"></i>
               <span class="fa fa-stack-1x" style="color:orange;">
                   <span style="font-size:15px; margin-top:-12px; display:block;">
@@ -446,6 +454,7 @@ if (($_SESSION['login_id'] == "admin"))
                   </span>
             </span>
         </span>	&nbsp;&nbsp;';
+                        $totaloffline++;
                     }
                 }
 
@@ -455,14 +464,33 @@ if (($_SESSION['login_id'] == "admin"))
 
                 ?><br><br>
 
-
-                <!-- Get Licence Key -->
                 <?php
-                $sql = "SELECT licencekey FROM client WHERE clientid= '$clientid'";
-                $result = $conn->query($sql);
-                $row = $result->fetch_assoc();
-                $clientkey = $row['licencekey'];
+                $totaldevices = $totalonline + $totaloffline;
+                $onlinepercentage = $totalonline / $totaldevices * 100;
+                $offlinepercentage = $totaloffline / $totaldevices * 100;
+
                 ?>
+                <br>
+                <hr>
+                <H2> <strong>Statistics </strong></h2>
+                <br>
+                <h3>Online: <?php echo   $totalonline ?>
+                    <div class="w3-light-grey w3-xlarge">
+                        <div class="w3-container w3-xlarge w3-green w3-center" style="height:30px;width:<?php echo $onlinepercentage ?>%"><?php echo round($onlinepercentage) . "%" ?></div>
+                    </div><br>
+                    <br>Offline: <?php echo $totaloffline ?>
+                    <div class="w3-light-grey w3-xlarge">
+                        <div class="w3-container w3-xlarge w3-red w3-center" style="height:30px;width:<?php echo $offlinepercentage ?>%"><?php echo round($offlinepercentage) . "%" ?></div>
+                    </div><br>
+
+
+                    <!-- Get Licence Key -->
+                    <?php
+                    $sql = "SELECT licencekey FROM client WHERE clientid= '$clientid'";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
+                    $clientkey = $row['licencekey'];
+                    ?>
 
             </div>
 

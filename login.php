@@ -159,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .intro {
       font-family: fontastique;
       font-size: 70px;
-      
+
     }
 
     .poweredby {
@@ -179,20 +179,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
 
   <form class="form-signin" method="post" action="">
-  <div class="logintext" />
+    <div class="logintext" />
     <strong class="intro">AutoTab</strong><sub>(Beta)</sub>
     <div class="poweredby">POWERED BY SSE</div>
-  </div><br><br>
-    <h4 class="form-signin-heading text-muted">Control & Command Center</h4>
-    <br>
-    <input type="text" class="form-control" name="client" placeholder="Client ID" required="" autofocus="">
-    <input type="password" class="form-control" name="password" placeholder="Password" required="">
+</div><br><br>
+<h4 class="form-signin-heading text-muted">Control & Command Center</h4>
+<br>
+<input type="text" class="form-control" name="client" placeholder="Client ID" required="" autofocus="">
+<input type="password" class="form-control" name="password" placeholder="Password" required="">
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">
-      Sign In
-    </button>
-  </form>
-  <div align="center" style="font-size:20px; color:#ff7c8e; margin-top:10px"><?php echo $error; ?></div>
+<button class="btn btn-lg btn-primary btn-block" type="submit">
+  Sign In
+</button>
+</form>
+<div align="center" style="font-size:20px; color:#ff7c8e; margin-top:10px"><?php echo $error; ?></div>
 </div>
 
 </html>
