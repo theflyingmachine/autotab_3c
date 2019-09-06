@@ -445,7 +445,7 @@ $clientname = "Admin";
                             $totalonline++;
                         }
                     } else {
-                        echo "<p>No Active Device connected to " . $row['client'] . ".</p>";
+                        echo "<p>No Active Device Connected to " . $row['client'] . ".</p>";
                     }
 
                     //Show Offline devices
@@ -496,50 +496,6 @@ $clientname = "Admin";
                 </h3>
                 <br><br><br><br>
             </div>
-
-
-
-
-            <!-- About Modal #####################################################################-->
-
-            <div class="modal fade" id="myaboutModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                            <h4 class="modal-title">About</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form action=worker/changepass.php method="POST" enctype="multipart/form-data">
-                                <div style="text-align: center">
-                                    <img src="img/autoTabback.png" alt="AutoTab Logo" width="80" height="80">
-                                </div>
-                                <div style="text-align: center">
-                                    <br>
-                                    <H2>AutoTab 3c</H2>
-                                    AutoTab is a platform for creating, managing and deploying digital content in a reliable and user-friendly dashboard that gives users total control over how and where content is played across a network of screens.
-                                    <br><br>
-                                    <strong>Version: 2.0.15</strong>
-                                    <?php echo "<h3>" . $clientname . "</h3>" ?>
-                                    <?php echo "License Key:<strong> " . $clientkey . "</strong>" ?>
-
-                                    <br><br>
-                                    <i>Feedback and bug reporting: <a href="mailto:eric.kalloor@cerner.com">eric.kalloor@cerner.com</a> <i>
-                                            <br>
-                                </div>
-                                <br>
-                                <!-- Duration: <input type="text" name="duration"> -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
 
 
 
