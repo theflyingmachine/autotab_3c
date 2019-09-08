@@ -346,6 +346,17 @@ $clientname = "Admin";
                     <div class="w3-light-grey w3-xlarge">
                         <div class="w3-container w3-xlarge w3-red w3-center" style="height:30px;width:<?php echo $offlinepercentage ?>%"><?php echo round($offlinepercentage) . "%" ?></div>
                     </div><br>
+                    <?php
+                    $ds = disk_total_space("/var/www/html/");
+                    $df = disk_free_space("/var/www/html/");
+                    $ud = $ds - $df;
+                    $diskperusage = $ud / $ds * 100;
+                    echo $diskperusage;
+                    ?>
+                    <br>Disk Usage: <?php echo $ud ."/".$ds  ?>
+                    <div class="w3-light-grey w3-xlarge">
+                        <div class="w3-container w3-xlarge w3-blue w3-center" style="height:30px;width:<?php echo $diskperusage ?>%"><?php echo round($diskperusage) . "%" ?></div>
+                    </div><br>
                     <br><strong>
                         <div align="center">Total Devices: <?php echo  $totaldevices ?>
                             &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; Total Clients: <?php echo  $result->num_rows ?>
