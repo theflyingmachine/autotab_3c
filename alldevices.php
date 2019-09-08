@@ -351,9 +351,8 @@ $clientname = "Admin";
                     $df = disk_free_space("/var/www/html/");
                     $ud = $ds - $df;
                     $diskperusage = $ud / $ds * 100;
-                    echo $diskperusage;
                     ?>
-                    <br>Disk Usage: <?php echo $ud ."/".$ds  ?>
+                    <br>Disk Usage: <?php echo round(($ud/1024)/1024) ."mb / ".round(($ds/1024)/1024). "mb" ?>
                     <div class="w3-light-grey w3-xlarge">
                         <div class="w3-container w3-xlarge w3-blue w3-center" style="height:30px;width:<?php echo $diskperusage ?>%"><?php echo round($diskperusage) . "%" ?></div>
                     </div><br>
