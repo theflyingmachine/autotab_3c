@@ -74,7 +74,7 @@ if (!empty($_REQUEST['url'])) {
 } elseif (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
     echo "Uploading img...";
     //Add file
-    $target_dir = "upload/";
+    $target_dir = "../upload/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -131,6 +131,7 @@ if (!empty($_REQUEST['url'])) {
     } else {
         $randname = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 12)), 0, 12);
         $finalfilename =  $target_dir . $randname . "." . $imageFileType;
+        $onlyfilename =  $randname . "." . $imageFileType;
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $finalfilename)) {
             echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
             //Convert Vieo TO MP4
@@ -167,9 +168,9 @@ if (!empty($_REQUEST['url'])) {
 
             //Manage Player based on file type
             if ($imageFileType == "mp4") {
-                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c" . $finalfilename;
+                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c/upload/" . $onlyfilename;
             } else
-                echo $url = "http://" . gethostname() . "/autotab_3c" . $finalfilename;
+                echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . $onlyfilename;
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
             if ($expdate) {
