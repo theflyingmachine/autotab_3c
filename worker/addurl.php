@@ -74,7 +74,7 @@ if (!empty($_REQUEST['url'])) {
 } elseif (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
     echo "Uploading img...";
     //Add file
-    $target_dir = "../upload/";
+    $target_dir = "upload/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -167,9 +167,9 @@ if (!empty($_REQUEST['url'])) {
 
             //Manage Player based on file type
             if ($imageFileType == "mp4") {
-                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/" . $finalfilename;
+                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=http://" . gethostname() . "/autotab_3c" . $finalfilename;
             } else
-                echo $url = "http://" . gethostname() . "/" . $finalfilename;
+                echo $url = "http://" . gethostname() . "/autotab_3c" . $finalfilename;
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
             if ($expdate) {
