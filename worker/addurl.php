@@ -162,6 +162,7 @@ if (!empty($_REQUEST['url'])) {
                     unlink($path);
                     $imageFileType = "mp4";
                     $finalfilename =  $target_dir . $randname . "." . $imageFileType;
+                    $onlyfilename =  $randname . "." . $imageFileType;
                 }
             }
 
