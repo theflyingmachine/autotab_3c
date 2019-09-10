@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <form class="form-signin" method="post" action="">
     <div class="logintext" />
     <strong class="intro">AutoTab</strong><sub>(Beta)</sub>
-    <div class="poweredby">POWERED BY SSE</div>
+    <div class="poweredby">POWERED BY CYBERBOY.IN</div>
 </div><br><br>
 <h4 class="form-signin-heading text-muted">Control & Command Center</h4>
 <br>

@@ -348,7 +348,7 @@ if (($_SESSION['login_id'] == "admin"))
         <div class="topnav">
             <div class="navbrand">
                 <a class="active" href="#home"> <strong class="intro">AutoTab</strong><sub>(Beta)</sub><br>
-                    <div class="poweredby">POWERED BY SSE</div>
+                    <div class="poweredby">POWERED BY CYBERBOY.IN</div>
                 </a>
             </div>
             <div class="navnav">
@@ -788,7 +788,7 @@ if (($_SESSION['login_id'] == "admin"))
             <!-- Footer #####################################################################-->
             <footer id="footer" class="fixed-bottom text-white-50">
                 <!-- <footer id="footer" class="bg-dark text-white-50"> -->
-                <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</small> AutoTab &nbsp;<sub>(Beta)</sub> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;POWERED BY SSE
+                <small>2019 &nbsp;&copy;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</small> AutoTab &nbsp;<sub>(Beta)</sub> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;POWERED BY CYBERBOY.IN
             </footer>
         </div>
     </div>
