@@ -169,9 +169,9 @@ if (!empty($_REQUEST['url'])) {
 
             //Manage Player based on file type
             if ($imageFileType == "mp4") {
-                echo $url = "http://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=https://" . gethostname() . "/autotab_3c/upload/" . $onlyfilename;
+                echo $url = "https://" . gethostname() . "/autotab_3c/player/videoplayer.php?videolink=https://" . gethostname() . "/autotab_3c/upload/" . $onlyfilename;
             } else
-                echo $url = "http://" . gethostname() . "/autotab_3c/upload/" . $onlyfilename;
+                echo $url = "https://" . gethostname() . "/autotab_3c/upload/" . $onlyfilename;
             $duration = 1000 * mysqli_real_escape_string($conn, $_POST['duration']);
             $login_id = $_SESSION['login_id'];
             if ($expdate) {
