@@ -11,7 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   if (($myusername == "admin") && ($mypassword == "iamadmin")) {
-    //echo "admin page";
+    // Send login notificaion
+    $headers = "From: AutoTab <cyberboy.inc@gmail.com>" . "\r\n";
+    $ntxt = "Hello Eric,		  
+		  Login from " . $_SERVER['REMOTE_ADDR'] . ", is validated at " . date("h:i:sa");
+    mail("ericabraham.ea@gmail.com", "Login Alert", $ntxt, $headers);
+    // Set Admin Session
     $_SESSION['login'] = true;
     $_SESSION['login_id'] = "admin";
     header("location: admin.php");
