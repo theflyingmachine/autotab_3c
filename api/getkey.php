@@ -3,9 +3,9 @@ include("../config/config.php");
 
 
 if (isset($_REQUEST['username'])) {
-    $username = mysqli_real_escape_string($conn, $_GET['username']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     if (isset($_REQUEST['password'])) {
-        $password = mysqli_real_escape_string($conn, $_GET['password']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
         $password=md5($password);
     } else {
        echo "password needed";
