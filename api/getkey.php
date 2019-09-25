@@ -8,7 +8,7 @@ if (isset($_REQUEST['username'])) {
         $password = mysqli_real_escape_string($conn, $_GET['password']);
         $password=md5($password);
     } else {
-       echo "Username and password needed";
+       echo "password needed";
        exit;
     }
    
@@ -21,4 +21,6 @@ if (isset($_REQUEST['username'])) {
     }else{
         echo "Invalid Username or Password";
     }
+}else{
+    echo "Username needed";
 }
