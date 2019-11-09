@@ -13,8 +13,13 @@ echo "Killing Chrome driver"
 taskkill /F /IM chromedriver.exe
 rem restart autotab
 wmic datafile where name="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" get Version /value > C:\autoTab\Driver\browserversion
-Powershell.exe -executionpolicy remotesigned -File  C:\autoTab\Driver\updatedriver.ps1
-start "AutoTab" "C:\autoTab\AutoTab.exe" updatepoc
+if exist C:\autoTab\Cache\new_AutoTab.exe (
+    rem "file exists"
+mv C:\autoTab\Cache\new_AutoTab.exe C:\autoTab\AutoTab.exe
+) else (
+    rem "file doesn't exist"
+)
+start "AutoTab" "C:\autoTab\AutoTab.exe" update
 goto Exit
 )
 pause
