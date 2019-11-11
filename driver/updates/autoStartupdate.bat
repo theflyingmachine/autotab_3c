@@ -15,7 +15,7 @@ rem restart autotab
 wmic datafile where name="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" get Version /value > C:\autoTab\Driver\browserversion
 if exist C:\autoTab\Cache\new_AutoTab.exe (
     rem "file exists"
-mv C:\autoTab\Cache\new_AutoTab.exe C:\autoTab\AutoTab.exe
+move /Y C:\autoTab\Cache\new_AutoTab.exe C:\autoTab\AutoTab.exe
 ) else (
     rem "file doesn't exist"
 )
