@@ -412,7 +412,7 @@ if (($_SESSION['login_id'] == "admin"))
           while ($row = $result->fetch_assoc()) {
 
             echo "  <tr>";
-            echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['link'], 0, 60) . "</a></td>";
+            echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['tabname'], 0, 60) . "</a></td>";
             echo '<td valign="right" width="20%"> <div>
             <span class="label ' . ($row['mon'] ? 'info' : 'other') . '">M</span>
             <span class="label ' . ($row['tue'] ? 'info' : 'other') . '">T</span>
@@ -432,7 +432,7 @@ if (($_SESSION['login_id'] == "admin"))
             echo "<td  width='20%'>";
             if ($row['status'] == 3) {
               echo "<form action='worker/activate.php' method='GET'>
-    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button disabled type='submit' style='width:100px' class='btn btn-danger'>Expired</button><a disabled href='#' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button disabled type='submit' style='width:100px' class='btn btn-danger'>Expired</button><a disabled href='#' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]'  data-book-id3='$row[tabname]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
@@ -440,7 +440,7 @@ if (($_SESSION['login_id'] == "admin"))
 
             if ($row['status'] == 2) {
               echo "<form action='worker/activate.php' method='GET'>
-    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button disabled type='submit' style='width:100px' class='btn btn-info'>Scheduled</button><a disabled href='#' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button disabled type='submit' style='width:100px' class='btn btn-info'>Scheduled</button><a disabled href='#' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]'  data-book-id3='$row[tabname]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
@@ -448,14 +448,14 @@ if (($_SESSION['login_id'] == "admin"))
 
             if ($row['status'] == 1) {
               echo "<form action='worker/deactivate.php' method='GET'>
-       <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+       <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-warning'>Deactivate</button><a href='#my_modal' data-toggle='modal' data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]'  data-book-id3='$row[tabname]' class='m-2 btn btn-info btn-md'>
        <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
        <span class='glyphicon glyphicon-trash'></span>
      </a></form>";
             }
             if ($row['status'] == 0) {
               echo "<form action='worker/activate.php' method='GET'>
-    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]' class='m-2 btn btn-info btn-md'>
+    <input type='hidden' name='linkid' value='" . $row['linkid'] . "'/><button type='submit' style='width:100px' class='btn btn-success'>Activate</button><a href='#my_modal' data-toggle='modal'  data-mon='$row[mon]' data-tue='$row[tue]' data-wed='$row[wed]' data-thu='$row[thu]' data-fri='$row[fri]' data-sat='$row[sat]' data-sun='$row[sun]' data-book-id='$sec' data-book-id1='$row[linkid]' data-book-id2='$row[link]'  data-book-id3='$row[tabname]' class='m-2 btn btn-info btn-md'>
     <span class='glyphicon glyphicon-pencil'></span> </a><a href='#my_modal_del' data-toggle='modal' data-deleteurl='$row[link]' data-deleteurlid='$row[linkid]' class='m-2 btn btn-danger btn-md'>
     <span class='glyphicon glyphicon-trash'></span>
   </a></form>";
@@ -503,6 +503,9 @@ if (($_SESSION['login_id'] == "admin"))
               </div>
               <div id="addnewform">
                 <form action=worker/addurl.php method="POST" enctype="multipart/form-data" onsubmit="$('#loading').show(); $('#addnewform').hide();">
+                  <label>Tab Name </label>
+                  <input class="form-control form-control-lg" type="text" name="tabname" required placeholder="Enter Tab Name">
+                  <br>
                   <label>Tab URL </label>
                   <input class="form-control form-control-lg" type="text" name="url" placeholder="Enter URL">
                   <h3 align="center">or</h3>
@@ -567,9 +570,6 @@ if (($_SESSION['login_id'] == "admin"))
                   <!-- URL:  <input type="text" name="url"> -->
                   <br>
                   <!-- Duration: <input type="text" name="duration"> -->
-
-                  <div class="modal-footer">
-                  </div>
                   <button type="submit" class="btn btn-default">Add</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </form>
@@ -593,6 +593,9 @@ if (($_SESSION['login_id'] == "admin"))
             </div>
             <div class="modal-body">
               <form action=worker/edittab.php method="POST">
+                <label>Tab Name </label>
+                <input class="form-control form-control-lg" type="text" name="ename" required placeholder="Enter Tab Name">
+                <br>
                 <label>Tab </label>
                 <input class="form-control form-control-lg" type="text" name="elink" placeholder="Enter Duration in Seconds" value="" />
                 <br>
@@ -742,6 +745,8 @@ if (($_SESSION['login_id'] == "admin"))
           $(e.currentTarget).find('input[name="editlink"]').val(editlink);
           var elink = $(e.relatedTarget).data('book-id2');
           $(e.currentTarget).find('input[name="elink"]').val(elink);
+          var ename = $(e.relatedTarget).data('book-id3');
+          $(e.currentTarget).find('input[name="ename"]').val(ename);
 
           var mon = $(e.relatedTarget).data('mon');
           document.getElementById("weekdaye-mon").checked = mon === 1;

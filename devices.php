@@ -514,6 +514,9 @@ if (($_SESSION['login_id'] == "admin"))
                             </div>
                             <div id="addnewform">
                                 <form action=worker/addurl.php method="POST" enctype="multipart/form-data" onsubmit="$('#loading').show(); $('#addnewform').hide();">
+                                    <label>Tab Name </label>
+                                    <input class="form-control form-control-lg" type="text" name="tabname" required placeholder="Enter Tab Name">
+                                    <br>
                                     <label>Tab URL </label>
                                     <input class="form-control form-control-lg" type="text" name="url" placeholder="Enter URL">
                                     <h3 align="center">or</h3>
@@ -579,8 +582,6 @@ if (($_SESSION['login_id'] == "admin"))
                                     <br>
                                     <!-- Duration: <input type="text" name="duration"> -->
 
-                                    <div class="modal-footer">
-                                    </div>
                                     <button type="submit" class="btn btn-default">Add</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </form>
@@ -784,7 +785,7 @@ if (($_SESSION['login_id'] == "admin"))
                 })
             </script>
 
-          <br><br>
+            <br><br>
             <!-- Footer #####################################################################-->
             <footer id="footer" class="fixed-bottom text-white-50">
                 <!-- <footer id="footer" class="bg-dark text-white-50"> -->
