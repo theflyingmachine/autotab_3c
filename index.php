@@ -690,7 +690,7 @@ if (($_SESSION['login_id'] == "admin"))
                   <?php echo "License Key:<strong> " . $clientkey . "</strong>" ?>
 
                   <br><br>
-                  <i>Feedback and bug reporting: <a href="mailto:eric.kalloor@cerner.com">eric.kalloor@cerner.com</a> <i>
+                  <i>Feedback and bug reporting: <a href="mailto:ericabraham.ea@gmail.com">ericabraham.ea@gmail.com</a> <i>
                       <br>
                 </div>
                 <br>
