@@ -21,7 +21,7 @@ if (isset($_REQUEST['clientid'])) {
 
 
 
-    $sql = "SELECT link, duration FROM linklist WHERE clientid= '$clientid' AND status=1 AND $todayday=1";
+    $sql = "SELECT link, duration FROM linklist WHERE clientid= '$clientid' AND status=1 AND $todayday=1 ORDER BY display_order";
 
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

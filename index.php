@@ -38,6 +38,11 @@ if (($_SESSION['login_id'] == "admin"))
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+  <!-- Dragable Table -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script>var $j = jQuery.noConflict(true);</script>
+
 
   <style>
     .white {
@@ -395,7 +400,7 @@ if (($_SESSION['login_id'] == "admin"))
         <?php
         include("config/config.php");
         $clientid = $_SESSION['login_id'];
-        $sql = "SELECT * FROM linklist WHERE clientid= '$clientid'";
+        $sql = "SELECT * FROM linklist WHERE clientid= '$clientid' ORDER BY display_order";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
 
@@ -408,10 +413,11 @@ if (($_SESSION['login_id'] == "admin"))
         <th>Status</th>
         <th>Action</th>
       </tr>
-    </thead> <tbody>";
+      </thead>  <tbody class='row_position'>";
           while ($row = $result->fetch_assoc()) {
 
-            echo "  <tr>";
+            // echo "  <tr>";
+            echo "<tr  id=". $row['linkid'] .">";
             echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['tabname'], 0, 60) . "</a></td>";
             echo '<td valign="right" width="20%"> <div>
             <span class="label ' . ($row['mon'] ? 'info' : 'other') . '">M</span>
@@ -776,7 +782,31 @@ if (($_SESSION['login_id'] == "admin"))
         $(function() {
           $('[data-toggle="tooltip"]').tooltip()
         })
-      </script>
+
+        $j( ".row_position" ).sortable({
+        delay: 150,
+        stop: function() {
+            var selectedData = new Array();
+            $j('.row_position>tr').each(function() {
+                selectedData.push($j(this).attr("id"));
+            });
+            updateOrder(selectedData);
+        }
+    });
+
+
+    function updateOrder(data) {
+        $j.ajax({
+            url:"./worker/ajaxupdate.php",
+            type:'post',
+            data:{position:data},
+            success:function(data){
+                // alert('your change successfully saved' + data);
+            }
+        })
+    }
+</script>
+      
 
 
       <!-- Footer #####################################################################-->
