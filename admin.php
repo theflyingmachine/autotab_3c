@@ -203,7 +203,7 @@ $clientname = "Admin";
 </nav> -->
   <div class="topnav">
     <div class="navbrand">
-      <a class="active" href="#home"> <strong class="intro">AutoTab</strong><sub>(Beta)</sub><br>
+      <a class="active" href="./"> <strong class="intro">AutoTab</strong><sub>(Beta)</sub><br>
         <div class="poweredby">POWERED BY CYBERBOY.IN</div>
       </a>
     </div>
