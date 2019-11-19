@@ -418,8 +418,8 @@ if (($_SESSION['login_id'] == "admin"))
 
             // echo "  <tr>";
             echo "<tr  id=". $row['linkid'] .">";
-            echo "<td valign='center' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['tabname'], 0, 60) . "</a></td>";
-            echo '<td valign="right" width="20%"> <div>
+            echo "<td valign='center' onmouseover='' style='cursor: pointer;' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['tabname'], 0, 60) . "</a></td>";
+            echo '<td valign="right" onmouseover="" style="cursor: pointer;" width="20%"> <div>
             <span class="label ' . ($row['mon'] ? 'info' : 'other') . '">M</span>
             <span class="label ' . ($row['tue'] ? 'info' : 'other') . '">T</span>
             <span class="label ' . ($row['wed'] ? 'info' : 'other') . '">W</span>
@@ -431,7 +431,7 @@ if (($_SESSION['login_id'] == "admin"))
               echo ' <img src="img/clock.png" alt="Expires" height="30" width="30"  data-toggle="tooltip" data-placement="top" title="Start: ' . $row['startdate'] . '&nbsp; &nbsp; End: ' . $row['expdate'] . '"/>';
             echo '</div></td>';
             $sec = ((int) $row['duration'] / 1000);
-            echo "<td  valign='center' width='8%'>" . $sec . " Sec</td>";
+            echo "<td  valign='center' onmouseover='' style='cursor: pointer;' width='8%'>" . $sec . " Sec</td>";
             $status = $row['status'];
             $statusicon = array("red", "green", "schedule", "expired");
             echo '<td  width="5%"><img src="img/' . $statusicon[$status] . '.png" alt="' .  $statusicon[$status] . '" height="32" width="32"/></td>';
