@@ -352,7 +352,7 @@ $clientname = "Admin";
                     $ud = $ds - $df;
                     $diskperusage = $ud / $ds * 100;
                     ?>
-                    <br>Disk Usage: <?php echo round(($ud/1073741824),2) ."GB / ".round(($ds/1073741824),2). "GB" ?>
+                    <br>Disk Usage: <?php echo round(($ud / 1073741824), 2) . "GB / " . round(($ds / 1073741824), 2) . "GB" ?>
                     <div class="w3-light-grey w3-xlarge">
                         <div class="w3-container w3-xlarge w3-blue w3-center" style="height:30px;width:<?php echo $diskperusage ?>%"><?php echo round($diskperusage) . "%" ?></div>
                     </div><br>
@@ -567,7 +567,7 @@ $clientname = "Admin";
                 </script>
 
 
-<br><br>
+                <br><br>
                 <!-- Footer #####################################################################-->
                 <footer id="footer" class="fixed-bottom text-white-50">
                     <!-- <footer id="footer" class="bg-dark text-white-50"> -->

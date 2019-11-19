@@ -39,9 +39,11 @@ if (($_SESSION['login_id'] == "admin"))
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
   <!-- Dragable Table -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>  
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script>var $j = jQuery.noConflict(true);</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script>
+    var $j = jQuery.noConflict(true);
+  </script>
 
 
   <style>
@@ -417,7 +419,7 @@ if (($_SESSION['login_id'] == "admin"))
           while ($row = $result->fetch_assoc()) {
 
             // echo "  <tr>";
-            echo "<tr  id=". $row['linkid'] .">";
+            echo "<tr  id=" . $row['linkid'] . ">";
             echo "<td valign='center' onmouseover='' style='cursor: pointer;' width='45%'><a target='_blank' href='" . $row['link'] . "'>" . substr($row['tabname'], 0, 60) . "</a></td>";
             echo '<td valign="right" onmouseover="" style="cursor: pointer;" width="20%"> <div>
             <span class="label ' . ($row['mon'] ? 'info' : 'other') . '">M</span>
@@ -783,30 +785,32 @@ if (($_SESSION['login_id'] == "admin"))
           $('[data-toggle="tooltip"]').tooltip()
         })
 
-        $j( ".row_position" ).sortable({
-        delay: 150,
-        stop: function() {
+        $j(".row_position").sortable({
+          delay: 150,
+          stop: function() {
             var selectedData = new Array();
             $j('.row_position>tr').each(function() {
-                selectedData.push($j(this).attr("id"));
+              selectedData.push($j(this).attr("id"));
             });
             updateOrder(selectedData);
-        }
-    });
+          }
+        });
 
 
-    function updateOrder(data) {
-        $j.ajax({
-            url:"./worker/ajaxupdate.php",
-            type:'post',
-            data:{position:data},
-            success:function(data){
-                // alert('your change successfully saved' + data);
+        function updateOrder(data) {
+          $j.ajax({
+            url: "./worker/ajaxupdate.php",
+            type: 'post',
+            data: {
+              position: data
+            },
+            success: function(data) {
+              // alert('your change successfully saved' + data);
             }
-        })
-    }
-</script>
-      
+          })
+        }
+      </script>
+
 
 
       <!-- Footer #####################################################################-->
