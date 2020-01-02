@@ -335,6 +335,16 @@ if (($_SESSION['login_id'] == "admin"))
         hr {
             border-top: 3px dashed #2196F3;
         }
+
+        span:hover {
+            position: relative;
+        }
+
+        span[aria-label]:hover:after {
+            content: attr(aria-label);
+            top: 100%;
+
+        }
     </style>
 
 
@@ -427,7 +437,7 @@ if (($_SESSION['login_id'] == "admin"))
                         echo '<span class="fa-stack fa-3x" style="color:green">
             <i class="fa fa-television fa-stack-2x"></i>
               <span class="fa fa-stack-1x" style="color:green;">
-                  <span style="font-size:15px; margin-top:-12px; display:block;">
+                  <span title="Last Seen: ' . $row['lastseen'] . '"  style="font-size:15px; margin-top:-12px; display:block;">
                   ' . $row['devicename'] . '
                   </span>
             </span>
@@ -449,7 +459,7 @@ if (($_SESSION['login_id'] == "admin"))
                         echo '<span class="fa-stack fa-3x" style="color:orange" >
             <i class="fa fa-television fa-stack-2x"></i>
               <span class="fa fa-stack-1x" style="color:orange;">
-                  <span style="font-size:15px; margin-top:-12px; display:block;">
+                  <span title="Last Seen: ' . $row['lastseen'] . '"  style="font-size:15px; margin-top:-12px; display:block;">
                   ' . $row['devicename'] . '
                   </span>
             </span>
