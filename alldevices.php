@@ -424,7 +424,7 @@ $clientname = "Admin";
                             echo '<span class="fa-stack fa-3x" style="color:#00FF00">
             <i class="fa fa-television fa-stack-1x"></i>
               <span class="fa fa-stack-1x" style="color:green;">
-                  <span style="font-size:15px; margin-top:30px; display:block;">
+                  <span title="Last Seen: '.$row3['lastseen'].'"  style="font-size:15px; margin-top:30px; display:block;">
                   ' . $row2['devicename'] . '
                   </span>
             </span>
@@ -445,7 +445,7 @@ $clientname = "Admin";
                             echo '<span class="fa-stack fa-3x" style="color:orange">
             <i class="fa fa-television fa-stack-1x"></i>
               <span class="fa fa-stack-1x" style="color:orange;">
-                  <span style="font-size:15px; margin-top:30px; display:block;">
+                  <span title="Last Seen: '.$row3['lastseen'].'"  style="font-size:15px; margin-top:30px; display:block;">
                   ' . $row3['devicename'] . '
                   </span>
             </span>
