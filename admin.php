@@ -274,8 +274,14 @@ $clientname = "Admin";
           echo "<td>" . $row['clientid'] . "</td>";
           echo "<td>" . $row['client'] . "</td>";
           echo "<td>" . $row['licencekey'] . "</td>";
-          echo "<td><a href='#my_modal_del' data-toggle='modal' data-deleteid='$row[clientid]' data-deletename='$row[client]' class='m-2 btn btn-danger btn-md'>
-   <span class='glyphicon glyphicon-trash'></span></td>";
+          echo "<td>
+          <a href='#my_modal_reset' data-toggle='modal' data-resetid='$row[clientid]' class='m-2 btn btn-warning btn-md'>
+   <span class='	glyphicon glyphicon-retweet'></span>
+
+          <a href='#my_modal_del' data-toggle='modal' data-deleteid='$row[clientid]' data-deletename='$row[client]' class='m-2 btn btn-danger btn-md'>
+   <span class='glyphicon glyphicon-trash'></span>
+   
+   </td>";
           echo "</tr>";
         }
       } else {
@@ -391,6 +397,35 @@ $clientname = "Admin";
 
 
 
+    <!-- Modal to resrt client password -->
+    <div class="modal" id="my_modal_reset">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Delete Tab</h4>
+          </div>
+          <div class="modal-body">
+            <form action=worker/adminchangepass.php method="POST">
+              <label resetid>Reset Password </label>
+              <input class="form-control form-control-lg" type="hidden" name="resetid" placeholder="" value="" />
+              <input class="form-control form-control-lg" type="text" name="pass1" placeholder="Enter New Password" value="" />
+              <br>
+              <input class="form-control form-control-lg" type="text" name="pass2" placeholder="Confirm New Password" value="" />
+
+              <!-- <input type="text" name="editduration" value=""/> -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-default">Reset Password</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <script>
       $('#my_modal_del').on('show.bs.modal', function(e) {
@@ -398,6 +433,12 @@ $clientname = "Admin";
         $(e.currentTarget).find('input[name="deleteid"]').val(deleteid);
         var deletename = $(e.relatedTarget).data('deletename');
         $(e.currentTarget).find('input[name="deletename"]').val(deletename);
+      });
+
+
+      $('#my_modal_reset').on('show.bs.modal', function(e) {
+        var resetid = $(e.relatedTarget).data('resetid');
+        $(e.currentTarget).find('input[name="resetid"]').val(resetid);
       });
     </script>
     <!-- Footer #####################################################################-->
