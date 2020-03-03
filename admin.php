@@ -397,7 +397,7 @@ $clientname = "Admin";
 
 
 
-    <!-- Modal to resrt client password -->
+    <!-- Modal to reset client password -->
     <div class="modal" id="my_modal_reset">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -409,9 +409,9 @@ $clientname = "Admin";
             <form action=worker/adminchangepass.php method="POST">
               <label resetid>Reset Password </label>
               <input class="form-control form-control-lg" type="hidden" name="resetid" placeholder="" value="" />
-              <input class="form-control form-control-lg" type="text" name="pass1" placeholder="Enter New Password" value="" />
+              <input class="form-control form-control-lg" type="password" name="pass1" placeholder="Enter New Password" value="" />
               <br>
-              <input class="form-control form-control-lg" type="text" name="pass2" placeholder="Confirm New Password" value="" />
+              <input class="form-control form-control-lg" type="password" name="pass2" placeholder="Confirm New Password" value="" />
 
               <!-- <input type="text" name="editduration" value=""/> -->
           </div>
